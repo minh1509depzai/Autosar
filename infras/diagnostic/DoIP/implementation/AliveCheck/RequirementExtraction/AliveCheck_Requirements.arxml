@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0">
+  <AR-PACKAGE>
+    <SHORT-NAME>DoIP_AliveCheck_Requirements</SHORT-NAME>
+    <ELEMENTS>
+      <ANNOTATION>
+        <SHORT-NAME>SWS_DoIP_00139</SHORT-NAME>
+        <LABELS>
+          <L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</L-4>
+          <L-4>7.3.2.4.1 Alive check request (payload type 0x0007)</L-4>
+          <L-4>PDF page 39; printed page 39</L-4>
+          <L-4>AUTOSAR CP R21-11; Document ID 418</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>RequirementText: If the DoIP module needs to send a alive check request, it shall have no payload data but only the generic DoIP header and the payload type set 0x0007.</P>
+          <P>Module: DoIP</P>
+          <P>Constraints: No payload data; generic DoIP header; payload type 0x0007.</P>
+          <P>RelatedConfiguration: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 7.3.2.4.1 Alive check request (payload type 0x0007); PDF page 39; printed page 39; AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>Traceability: SRS_Eth_00083</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <SHORT-NAME>SWS_DoIP_00140</SHORT-NAME>
+        <LABELS>
+          <L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</L-4>
+          <L-4>7.3.2.4.1 Alive check request (payload type 0x0007)</L-4>
+          <L-4>PDF page 39; printed page 39</L-4>
+          <L-4>AUTOSAR CP R21-11; Document ID 418</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>RequirementText: After sending an alive check request the DoIP module shall wait the configured time DoIPAliveCheckResponseTimeout to receive a valid alive check response and [SWS_DoIP_00141]. If it does not receive an alive check response, the socket connection on which the alive check request was sent shall be reset as described in [SWS_DoIP_00358].</P>
+          <P>Module: DoIP</P>
+          <P>Constraints: Wait for DoIPAliveCheckResponseTimeout; if no alive check response is received, reset the socket as specified by SWS_DoIP_00358.</P>
+          <P>RelatedConfiguration: DoIPAliveCheckResponseTimeout; SWS_DoIP_00141; SWS_DoIP_00358</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 7.3.2.4.1 Alive check request (payload type 0x0007); PDF page 39; printed page 39; AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>Traceability: SRS_Eth_00083</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <SHORT-NAME>SWS_DoIP_00141</SHORT-NAME>
+        <LABELS>
+          <L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</L-4>
+          <L-4>7.3.2.4.2 Alive check response (payload type 0x0008)</L-4>
+          <L-4>PDF page 40; printed page 40</L-4>
+          <L-4>AUTOSAR CP R21-11; Document ID 418</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>RequirementText: If the received Alive check response field "SourceAddress" matches the registered Source Address of the socket connection the response was received on, the DoIP module shall do nothing. Otherwise it shall reset the socket connection as described in [SWS_DoIP_00358].</P>
+          <P>Module: DoIP</P>
+          <P>Constraints: Compare response SourceAddress with the registered Source Address of the receiving socket; reset on mismatch.</P>
+          <P>RelatedConfiguration: SWS_DoIP_00358</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 7.3.2.4.2 Alive check response (payload type 0x0008); PDF page 40; printed page 40; AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>Traceability: SRS_Eth_00083</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+    </ELEMENTS>
+  </AR-PACKAGE>
+</AUTOSAR>

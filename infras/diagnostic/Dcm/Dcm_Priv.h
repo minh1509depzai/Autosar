@@ -178,6 +178,7 @@ typedef struct {
   PduLengthType TxTpSduLength;
   PduLengthType TxIndex;
   uint16_t timerS3Server;
+  uint8_t timerS3ServerState;
   uint16_t timerP2Server;
   uint8_t respPendCnt;
   uint8_t currentSID;

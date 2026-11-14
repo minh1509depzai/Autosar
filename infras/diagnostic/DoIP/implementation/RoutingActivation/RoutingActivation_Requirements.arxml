@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ar:AUTOSAR xmlns:ar="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-0.xsd">
+  <ar:AR-PACKAGE>
+    <ar:SHORT-NAME>DoIP_RoutingActivation_Extract</ar:SHORT-NAME>
+    <ar:ELEMENTS>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00101</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 36; printed page 35</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00101</ar:P>
+          <ar:P>Description: Discard a Routing Activation Request (payload type 0x0005) received on a connection that is not configured as DoIPTcpConnection.</ar:P>
+          <ar:P>Conditions: Message payload type is 0x0005 and receiving connection is not a configured DoIPTcpConnection.</ar:P>
+          <ar:P>Expected behavior: Discard the DoIP message.</ar:P>
+          <ar:P>Notes: The specification notes this payload is also not allowed on UDP.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00117</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 36; printed page 35</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00117</ar:P>
+          <ar:P>Description: The expected payload length for a Routing Activation Request (payload type 0x0005) shall be exactly 7 or 11 bytes.</ar:P>
+          <ar:P>Conditions: Payload type 0x0005.</ar:P>
+          <ar:P>Expected behavior: Accept the specified expected lengths of 7 or 11 bytes.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00102</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 36; printed page 35</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00102</ar:P>
+          <ar:P>Description: Continue Routing Activation Request processing as defined by SWS_DoIP_00103 when the DoIP header is valid and Source Address matches a configured DoIPTesterSA.</ar:P>
+          <ar:P>Conditions: Valid DoIP header; Source Address matches configured DoIPTesterSA.</ar:P>
+          <ar:P>Expected behavior: Continue with SWS_DoIP_00103.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00106</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 36; printed page 35</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00106</ar:P>
+          <ar:P>Description: If the Source Address is valid but the receiving connection is already registered to another source address, send a Routing Activation Response on the same connection with response code 0x02 and close the socket connection.</ar:P>
+          <ar:P>Conditions: Valid Source Address; receiving connection is registered to a different source address.</ar:P>
+          <ar:P>Expected behavior: Send response code 0x02 on the same connection, then close the socket per SWS_DoIP_00058.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00104</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 36; printed page 35</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00104</ar:P>
+          <ar:P>Description: If Source Address does not match a configured DoIPTesterSA, send a Routing Activation Response on the same connection with response code 0x00 and close the socket connection.</ar:P>
+          <ar:P>Conditions: Source Address is not configured as DoIPTesterSA.</ar:P>
+          <ar:P>Expected behavior: Send response code 0x00 on the same connection, then close the socket per SWS_DoIP_00058.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00103</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 36; printed page 35</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00103</ar:P>
+          <ar:P>Description: Continue processing as defined by SWS_DoIP_00105 when the received Source Address is already registered to this same socket connection, or is not yet registered to any connection.</ar:P>
+          <ar:P>Conditions: Source Address is registered to the same socket, or is not registered to a connection.</ar:P>
+          <ar:P>Expected behavior: Continue with SWS_DoIP_00105.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00105</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 36; printed page 35</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00105</ar:P>
+          <ar:P>Description: If Source Address is registered to another connection on the same DoIPInterface, trigger an Alive Check on that connection and wait for its response or DoIPAliveCheckResponseTimeout.</ar:P>
+          <ar:P>Conditions: Source Address is registered to another connection on the same DoIPInterface.</ar:P>
+          <ar:P>Expected behavior: If Alive Check response arrives in time, send response code 0x03 and close the current socket. If the source is not registered, or the Alive Check times out, continue with SWS_DoIP_00107.</ar:P>
+          <ar:P>Notes: Alive Check behavior references SWS_DoIP_00139 and SWS_DoIP_00140.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00107</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 37; printed page 36</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00107</ar:P>
+          <ar:P>Description: Check the number of registered connections against DoIPMaxTesterConnections.</ar:P>
+          <ar:P>Conditions: Routing activation has reached this check.</ar:P>
+          <ar:P>Expected behavior: If registered connections are fewer than DoIPMaxTesterConnections, continue with SWS_DoIP_00108. Otherwise send Alive Check requests to all registered connections. If all respond before timeout, send response code 0x01 and close the current socket. If at least one times out, close the current socket and continue with SWS_DoIP_00108.</ar:P>
+          <ar:P>Notes: Alive Check references SWS_DoIP_00139 and SWS_DoIP_00140.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00108</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 37; printed page 36</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00108</ar:P>
+          <ar:P>Description: Check whether Activation Type matches a DoIPRoutingActivationNumber referenced by the configured DoIPTesterSA.</ar:P>
+          <ar:P>Conditions: Activation Type bytes are compared with configured DoIPRoutingActivationNumber values for the tester.</ar:P>
+          <ar:P>Expected behavior: If a match exists, continue with SWS_DoIP_00109.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00160</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 37; printed page 36</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00160</ar:P>
+          <ar:P>Description: If Activation Type does not satisfy SWS_DoIP_00108, send Routing Activation Response code 0x06 and close the socket connection.</ar:P>
+          <ar:P>Conditions: Activation Type does not match a configured routing activation number.</ar:P>
+          <ar:P>Expected behavior: Send response code 0x06 and close the socket per SWS_DoIP_00058.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00109</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 37; printed page 36</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00109</ar:P>
+          <ar:P>Description: If a DoIPRoutingActivationAuthenticationCallback is configured for the referenced routing activation, call it.</ar:P>
+          <ar:P>Conditions: Authentication callback configured for the referenced DoIPRoutingActivation.</ar:P>
+          <ar:P>Expected behavior: If DoIPRoutingActivationAuthenticationReqLength is nonzero, additionally process the first configured number of bytes of the optional OEM specific field.</ar:P>
+          <ar:P>Notes: Callback signature is described by SWS_DoIP_00049.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00161</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 37; printed page 36</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00161</ar:P>
+          <ar:P>Description: If the authentication callback returns E_OK, consider authentication successful.</ar:P>
+          <ar:P>Conditions: DoIPRoutingActivationAuthenticationCallback returns E_OK.</ar:P>
+          <ar:P>Expected behavior: If DoIPRoutingActivationAuthenticationResLength is nonzero, attach the configured number of initial response bytes to the OEM specific field of the Routing Activation Response.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00110</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 37; printed page 36</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00110</ar:P>
+          <ar:P>Description: If the authentication callback returns DOIP_E_PENDING, call it again on the next DoIP_MainFunction cycle until it returns another value.</ar:P>
+          <ar:P>Conditions: Authentication callback returns DOIP_E_PENDING.</ar:P>
+          <ar:P>Expected behavior: Consider the socket connection registered to this DoIPTesterSA without activating routing.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00111</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 37; printed page 36</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00111</ar:P>
+          <ar:P>Description: If the authentication callback returns a value other than E_OK or DOIP_E_PENDING (for example E_NOT_OK), send Routing Activation Response code 0x04.</ar:P>
+          <ar:P>Conditions: Authentication callback returns an error/other value.</ar:P>
+          <ar:P>Expected behavior: Send response code 0x04; consider the socket registered to this DoIPTesterSA without activating routing.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00112</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 38; printed page 37</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00112</ar:P>
+          <ar:P>Description: If a DoIPRoutingActivationConfirmationCallback is configured for the referenced routing activation, call it.</ar:P>
+          <ar:P>Conditions: Confirmation callback configured for the referenced DoIPRoutingActivation.</ar:P>
+          <ar:P>Expected behavior: If DoIPRoutingActivationConfirmationReqLength is nonzero, process the configured number of trailing bytes of the optional OEM specific field. If callback returns E_OK, confirmation succeeds; if DoIPRoutingActivationConfirmationResLength is nonzero, append the configured number of trailing response bytes to the OEM specific field.</ar:P>
+          <ar:P>Notes: Callback signature is described by SWS_DoIP_00048.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00114</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 38; printed page 37</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00114</ar:P>
+          <ar:P>Description: If the confirmation callback returns DOIP_E_PENDING, send one Routing Activation Response with response code 0x11.</ar:P>
+          <ar:P>Conditions: DoIPRoutingActivationConfirmationCallback returns DOIP_E_PENDING.</ar:P>
+          <ar:P>Expected behavior: Send response code 0x11 once.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00274</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 38; printed page 37</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00274</ar:P>
+          <ar:P>Description: If the confirmation callback returns E_NOT_OK, send Routing Activation Response code 0x05 and close the socket connection.</ar:P>
+          <ar:P>Conditions: DoIPRoutingActivationConfirmationCallback returns E_NOT_OK.</ar:P>
+          <ar:P>Expected behavior: Send response code 0x05 and close the socket per SWS_DoIP_00058.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00113</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3 Routing activation</ar:L-4>
+          <ar:L-4>PDF page 38; printed page 37</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00113</ar:P>
+          <ar:P>Description: If none of the preceding checks has caused a response, consider the routing activation confirmed, authorized, and valid.</ar:P>
+          <ar:P>Conditions: No earlier check sent a Routing Activation Response.</ar:P>
+          <ar:P>Expected behavior: Send response code 0x10; register the socket to the DoIPTesterSA and enable routing for this activation, making routing to configured DoIPTargetAdressRef active for diagnostic requests received on this connection.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00116</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3.2 Routing activation response (payload type 0x0006)</ar:L-4>
+          <ar:L-4>PDF page 39; printed page 38</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00116</ar:P>
+          <ar:P>Description: Set the Logical Address Tester field to the tester source address from the Routing Activation Request.</ar:P>
+          <ar:P>Conditions: Constructing a Routing Activation Response.</ar:P>
+          <ar:P>Expected behavior: Populate Logical Address Tester with the request's Tester SA.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00118</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3.2 Routing activation response (payload type 0x0006)</ar:L-4>
+          <ar:L-4>PDF page 39; printed page 38</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00118</ar:P>
+          <ar:P>Description: Set the Logical Address DoIP entity field to the configured DoIPLogicalAddress.</ar:P>
+          <ar:P>Conditions: Constructing a Routing Activation Response.</ar:P>
+          <ar:P>Expected behavior: Populate Logical Address DoIP entity from DoIPLogicalAddress.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00119</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3.2 Routing activation response (payload type 0x0006)</ar:L-4>
+          <ar:L-4>PDF page 39; printed page 38</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00119</ar:P>
+          <ar:P>Description: Set the Routing Activation Response Code according to the response conditions in the referenced requirements.</ar:P>
+          <ar:P>Conditions: Constructing a Routing Activation Response.</ar:P>
+          <ar:P>Expected behavior: Derive response code according to SWS_DoIP_00106, SWS_DoIP_00104, SWS_DoIP_00105, SWS_DoIP_00107, SWS_DoIP_00160, SWS_DoIP_00111, SWS_DoIP_00114, SWS_DoIP_00274, and SWS_DoIP_00113.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00120</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.3.2 Routing activation response (payload type 0x0006)</ar:L-4>
+          <ar:L-4>PDF page 39; printed page 38</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>Requirement ID: SWS_DoIP_00120</ar:P>
+          <ar:P>Description: Fill the OEM specific field with optional values defined in chapter 7.3.2.2.1 when the corresponding response lengths are used.</ar:P>
+          <ar:P>Conditions: DoIPRoutingActivationAuthenticationResLength and/or DoIPRoutingActivationConfirmationResLength is used.</ar:P>
+          <ar:P>Expected behavior: Populate the OEM specific response field with the configured optional callback response data.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+    </ar:ELEMENTS>
+  </ar:AR-PACKAGE>
+</ar:AUTOSAR>

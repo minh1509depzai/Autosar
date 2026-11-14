@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ar:AUTOSAR xmlns:ar="http://autosar.org/schema/r4.0">
+  <ar:AR-PACKAGE>
+    <ar:SHORT-NAME>Requirements_Extract</ar:SHORT-NAME>
+    <ar:ELEMENTS>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00121</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 42; printed page 42</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: When the module receives a DoIP message with payload Type 0x8001 on a connection different than a configured DoIPTcpConnection, the module shall discard the DoIP message.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: Not specified in source</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 42, printed page 42</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00122</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 42; printed page 42</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The expected payload length (see [SWS_DoIP_00019]) for diagnostic messages with payload type 0x8001 shall be at least 5 byte.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: Not specified in source</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 42, printed page 42</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00123</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 42; printed page 42</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module receives a diagnostic message with a "Source Address" (equals DoIPTesterSA) which is not registered on an established socket connection, the DoIP modules shall send a diagnostic message negative acknowledge message with the diagnostic message negative acknowledge code set to 0x02. Additionally the socket connection shall be closed as described in [SWS_DoIP_00058].</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 42, printed page 42</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00124</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 43; printed page 43</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module receives a diagnostic message with a "Target Addess" (equals DoIPTargetAdressValue) which is not connected via DoIPRoutingActivationRef and DoIPTargetAdressRef to the received valid DoIPTesterSA, than the DoIP module shall send a diagnostic message negative acknowledge message with the diagnostic message negative acknowledge code set to 0x03. Additionally the message shall be discarded.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 43, printed page 43</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00125</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 43; printed page 43</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module receives a diagnostic message with the payload data length in the DoIP header is set to a value bigger than DoIPMaxRequestBytes-4, than the DoIP module shall send a diagnostic message negative acknowledge message with the diagnostic message negative acknowledge code set to 0x04. Additionally the message shall be discarded.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 43, printed page 43</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00126</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 43; printed page 43</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module receives a diagnostic message and [SWS_DoIP_00125] does not apply but the current buffer size is not sufficient to receive the message, than the DoIP module shall send a diagnostic message negative acknowledge message with the diagnostic message negative acknowledge code set to 0x05. Additionally the message shall be discarded.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 43, printed page 43</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00127</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 43; printed page 43</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module receives a diagnostic message and the according "TargetAddress" was not activated by routing activation as described in [SWS_DoIP_00113], the DoIP module shall send a diagnostic message negative acknowledge message with the diagnostic message negative acknowledge code set to 0x06. Additionally the message shall be discarded.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 43, printed page 43</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00128</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 43; printed page 43</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If no negative acknowledge was sent the DoIP module shall evaluate the message and forward the content (i.e. all UDS Data, not the TargetAddress and SourceAddress) to the DoIPPduRRxPdu connected to the received TargetAddress/SourceAddress combination as configured in DoIPChannel</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 43, printed page 43</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00129</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 43; printed page 43</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the PduR accepted all Data, the DoIP module shall send a diagnostic acknowledge message as described in Table 7.13.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 43, printed page 43</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00130</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 43; printed page 43</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The DoIP module will get a diagnostic response message (i.e DoIP_TpTransmit or DoIP_IfTransmit is called with DoIPPduRTxPdu which matches to the DoIPPduRRxPdu that handled the data to the PduR) via the upper layer connection to the PduR, so it has to monitor whether the socket connection the request was received on is still established. If the socket connection has been closed, the response shall be discarded and the DoIP shall return with E_NOT_OK in the return value.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 43, printed page 43</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00131</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 43–44; printed page 43–44</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module is called with DoIPPduRTxPdu in the DoIP_TpTransmit or DoIP_IfTransmit as described in [SWS_DoIP_00130] and the according socket connection has not been closed since the reception of the according diagnostic message, the DoIP module shall prepare a diagnostic message via the according socket connection with the "SourceAddress" set to the DoIPTargetAdressValue of the request and the "TargetAddress" set to the DoIPTesterSA.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 43–44, printed page 43–44</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00173</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.1</ar:L-4>
+          <ar:L-4>PDF page 44; printed page 44</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The field "User data" of the [SWS_DoIP_00131] message contains the actual diagnostic payload data which shall not be modified by DoIP.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.1, PDF page 44, printed page 44</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00132</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.2</ar:L-4>
+          <ar:L-4>PDF page 44; printed page 44</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module needs to send a diagnostic acknowledge message the "Source Address" shall be set to the according "TargetAddress" of the received message.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.2, PDF page 44, printed page 44</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00133</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.2</ar:L-4>
+          <ar:L-4>PDF page 44; printed page 44</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module needs to send a diagnostic acknowledge message the "Target Address" shall be set to the according "SourceAddress" of the received message.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.2, PDF page 44, printed page 44</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00134</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.2</ar:L-4>
+          <ar:L-4>PDF page 44; printed page 44</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module needs to send a diagnostic acknowledge message the field "previous diag message" shall be filled with the number of bytes of the original request message as configured in the parameter DoIPNumByteDiagAckNack for the DoIPTester the request was received on.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.2, PDF page 44, printed page 44</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00135</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.3</ar:L-4>
+          <ar:L-4>PDF page 45; printed page 45</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module needs to send a diagnostic negative acknowledge message the "Source Address" shall be set to the according "TargetAddress" of the received message.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.3, PDF page 45, printed page 45</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00136</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.3</ar:L-4>
+          <ar:L-4>PDF page 45; printed page 45</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module needs to send a diagnostic negative acknowledge message the "Target Address" shall be set to the according "SourceAddress" of the received message.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.3, PDF page 45, printed page 45</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00137</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.3</ar:L-4>
+          <ar:L-4>PDF page 45; printed page 45</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module needs to send a diagnostic negative acknowledge message, the "Diagnostic message negative acknowledge code" shall be set to the value specified by the specification item that is triggering the diagnostic negative acknowledge message.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.3, PDF page 45, printed page 45</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00138</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.6.3</ar:L-4>
+          <ar:L-4>PDF page 45; printed page 45</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: If the DoIP module needs to send a diagnostic negative acknowledge message the field "previous diag message" shall be filled with the configured number of the original request message as configured in the parameter DoIPNumByteDiagAckNack for the DoIPTester the request was received on.</ar:P>
+          <ar:P>Module: DoIP</ar:P>
+          <ar:P>RelatedConfiguration: DoIPTesterSA; DoIPRoutingActivationRef; DoIPTargetAdressRef; DoIPMaxRequestBytes; DoIPChannel; DoIPPduRRxPdu; DoIPPduRTxPdu; DoIPTargetAdressValue; DoIPNumByteDiagAckNack</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>Traceability: SRS_Eth_00027</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.6.3, PDF page 45, printed page 45</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+    </ar:ELEMENTS>
+  </ar:AR-PACKAGE>
+</ar:AUTOSAR>

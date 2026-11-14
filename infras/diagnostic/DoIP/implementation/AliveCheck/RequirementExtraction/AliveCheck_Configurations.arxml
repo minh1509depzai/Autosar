@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0">
+  <AR-PACKAGE>
+    <SHORT-NAME>DoIP_AliveCheck_ConfigurationParameters</SHORT-NAME>
+    <ELEMENTS>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPAliveCheckResponseTimeout</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>Document: AUTOSAR CP R21-11; Document ID 418</P>
+          <P>ECUCItemID: ECUC_DoIP_00009</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucFloatParamDef</P>
+          <P>RangeOrReferenceTarget: [0 .. INF]</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: false</P>
+          <P>ValueConfigurationClass: Pre-compile time: X; All Variants: X; Link time: not supported; Post-build time: not supported</P>
+          <P>Description: Timeout in [s] for waiting for a response to an Alive Check request before the connection is considered to be disconnected. Represents parameter T_TCP_AliveCheck of ISO 13400-2:2012.</P>
+          <P>Relationship: Used by SWS_DoIP_00140, SWS_DoIP_00105, and SWS_DoIP_00107 as the wait timeout for Alive Check responses.</P>
+          <P>SourceReference: Section 10; PDF page 100; printed page 100</P>
+          <P>EvidenceClassification: Explicit</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+    </ELEMENTS>
+  </AR-PACKAGE>
+</AUTOSAR>

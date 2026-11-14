@@ -50,7 +50,9 @@ static void Dsd_HandleRequest(Dcm_ContextType *context,
                  context->RxTpSduLength));
     /* always restart the s3server timer on any request */
     context->timerS3Server = config->timing->S3Server;
-
+    
+    /* @SWS_Dcm_00178
+       Callback to application to check if the service is accepted */
     if (NULL != config->ServiceVerificationFnc) {
       r = config->ServiceVerificationFnc(context->msgContext.dcmRxPduId, config->rxBuffer,
                                          context->RxTpSduLength, &nrc);

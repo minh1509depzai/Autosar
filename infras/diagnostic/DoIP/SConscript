@@ -1,0 +1,99 @@
+import os
+
+from building import *
+
+CWD = GetCurrentDir()
+
+
+@register_library
+class LibraryDoIPNodeInformation(Library):
+    def config(self):
+        self.CPPPATH = [
+            "$INFRAS",
+            os.path.join("$INFRAS", "include"),
+            os.path.join(CWD, "implementation", "DoIPMessage"),
+            os.path.join(
+                CWD,
+                "implementation",
+                "Configuration",
+                "Implementation",
+                "ExportHeaderInterface",
+            ),
+            os.path.join(
+                CWD,
+                "implementation",
+                "NodeInformation",
+                "Implementation",
+                "ExportHeaderInterface",
+            ),
+            os.path.join(
+                CWD,
+                "implementation",
+                "NodeInformation",
+                "Implementation",
+                "ImportHeaderInterface",
+            ),
+            os.path.join(
+                CWD,
+                "implementation",
+                "NodeInformation",
+                "Implementation",
+                "InternalHeader",
+            ),
+            os.path.join(
+                CWD,
+                "implementation",
+                "DiagnosticMessage",
+                "Implementation",
+                "ExportHeaderInterface",
+            ),
+            os.path.join(
+                CWD,
+                "implementation",
+                "DiagnosticMessage",
+                "Implementation",
+                "ImportHeaderInterface",
+            ),
+            os.path.join(
+                CWD,
+                "implementation",
+                "DiagnosticMessage",
+                "Implementation",
+                "InternalHeader",
+            ),
+        ]
+        self.source = [
+            os.path.join(CWD, "implementation", "DoIPMessage", "DoIPMessage.cpp"),
+            os.path.join(
+                CWD,
+                "implementation",
+                "NodeInformation",
+                "Implementation",
+                "InternalImplement",
+                "NodeInformationMessage.cpp",
+            ),
+            os.path.join(
+                CWD,
+                "implementation",
+                "NodeInformation",
+                "Implementation",
+                "InternalImplement",
+                "NodeInformationManager.cpp",
+            ),
+            os.path.join(
+                CWD,
+                "implementation",
+                "DiagnosticMessage",
+                "Implementation",
+                "InternalImplement",
+                "DiagnosticMessage.cpp",
+            ),
+            os.path.join(
+                CWD,
+                "implementation",
+                "DiagnosticMessage",
+                "Implementation",
+                "InternalImplement",
+                "DiagnosticMessageManager.cpp",
+            ),
+        ]

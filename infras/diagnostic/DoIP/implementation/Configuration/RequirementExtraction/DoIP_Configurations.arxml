@@ -1,0 +1,1281 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGE>
+    <SHORT-NAME>ConfigurationParameters_Extract</SHORT-NAME>
+    <ELEMENTS>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPDevelopmentErrorDetect</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00004</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Switches the development error detection and notification on or off. • true: detection and notification is enabled. • false: detection and notification is disabled.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 87 (printed page 87)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPDhcpOptionVinUse</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00067</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: If DoIPDhcpOptionVinUse is set to true the DoIP module will add the VIN to the Dhcp host name if no valid Dhcp host name is already set.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 87 (printed page 87)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPEntityStatusMaxByteFieldUse</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00064</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: This parameter is used to distinguish the optional support of the Max data size element of a diagnostic entity status response.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 87 (printed page 87)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPGIDInvalidityPattern</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00065</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 255</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Specifies the Byte pattern that is used for response messages if no valid GID could be retrieved. Only the value ’0’ or ’255’ is allowed".</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 88 (printed page 88)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPHostNameSizeMax</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00073</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 5 .. 255</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Maximum Size of the DHCP HostName in ASCII. This parameter is necessary to reserve the correct amount of bytes for working with the DHCP HostName option. Minimum range is 5 because Dhcp Host Name should be at least "DoIP-" on any configuration.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 88 (printed page 88)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPMainFunctionPeriod</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00006</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucFloatParamDef</P>
+          <P>RangeOrReferenceTarget: ]0 .. INF[</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Determines the frequency at which the DoIP_MainFunction() is called in [s].</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 88 (printed page 88)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPMaxRequestBytes</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00019</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 1 .. 4294967295</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Specifies the maximum allowed bytes of a DoIP message request without the DoIP header.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 89 (printed page 89)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPMaxUDPRequestPerConnection</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00074</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 1 .. 255</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: This parameter captures the maximum amount of UDP Requests necessary to handle parallel within a single UDP connection.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 89 (printed page 89)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPNodeType</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00021</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucEnumerationParamDef</P>
+          <P>RangeOrReferenceTarget: DOIP_GATEWAY The DoIP Entity is a DoIP Gateway.</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Describes the Type of the DoIP node.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 89 (printed page 89)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPUseEIDasGID</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00018</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Specifies if the DoIP entity shall use its EID if it is the Master for vehicle identification gid on the vehicle identification/vehicle announcement.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 90 (printed page 90)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPVersionInfoApi</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00005</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Activates the DoIP_GetVersionInfo() API. TRUE: Enables the DoIP_GetVersionInfo() API. FALSE: DoIP_GetVersionInfo() API is not included.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 90 (printed page 90)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPVinGidMaster</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00017</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Specifies if the DoIP entity is the Vehicle identification Master for the GID (Group ID).</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 90 (printed page 90)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPVinInvalidityPattern</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00066</P>
+          <P>ParentContainer: DoIPGeneral</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 255</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Specifies the Byte pattern that is used for response messages if no valid VIN could be retrieved. Only the value ’0’ or ’255’ is allowed".</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.3 DoIPGeneral; PDF page 91 (printed page 91)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPFurtherActionByteDirect</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00093</P>
+          <P>ParentContainer: DoIPFurtherActionByteCallback</P>
+          <P>Type: EcucFunctionNameDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Regular Expression</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: Direct C Callback function to get the OEM specific Further Action Byte for the DoIP vehicle identification response/vehicle announcement. If the DoIPFurtherActionByteDirect parameter is present, the DoIP module will not use an RPort of ServiceInterface "CBGetFurtherActionByte" but will call the configured function.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.4 DoIPFurtherActionByteCallback; PDF page 94 (printed page 94)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPGetGidDirect</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00028</P>
+          <P>ParentContainer: DoIPGetGidCallback</P>
+          <P>Type: EcucFunctionNameDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Regular Expression</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: If the DoIPGetGidDirect parameter exist the DoIP module shall call the configured callback function (&lt;User&gt;_DoIPGetGID) direct. (It is not needed to specify a service port to the DoIP service component.) If the DoIPGetGidDirect parameter does NOT exist the DoIP module shall use a RPort with a CallbackGetGID type of client-server port interface to retrive the GID.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.5 DoIPGetGidCallback; PDF page 95 (printed page 95)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPPowerModeDirect</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00027</P>
+          <P>ParentContainer: DoIPPowerModeCallback</P>
+          <P>Type: EcucFunctionNameDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Regular Expression</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: If the DoIPPowerModeDirect parameter exist the DoIP module shall call the configured callback function (&lt;User&gt;_DoIPGetPowerModeCallback) direct. (It is not needed to specify a service port to the DoIP service component.) If the DoIPPowerModeDirect parameter does NOT present the DoIP module shall use a RPort with a CallbackGetPowerMode type of client-server port interface to retrive the current power mode.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.6 DoIPPowerModeCallback; PDF page 96 (printed page 96)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTriggerGidSyncDirect</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00029</P>
+          <P>ParentContainer: DoIPTriggerGidSyncCallback</P>
+          <P>Type: EcucFunctionNameDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Regular Expression</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: If the DoIPTriggerGidSyncDirect parameter exist the DoIP module shall call the configured callback function (&lt;User&gt;_DoIPTriggerGidSyncCallback) direct. (It is not needed to specify a service port to the DoIP service component.) If the DoIPTriggerGidSyncDirect parameter does NOT present the DoIP module shall use a RPort with a CallbackTriggerGIDSynchnonization type of client-server port interface to trigger the GID synchronization.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.7 DoIPTriggerGidSyncCallback; PDF page 96 (printed page 96)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPEid</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00014</P>
+          <P>ParentContainer: DoIPConfigSet</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 281474976710655</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: 97 of 126 Document ID 418: AUTOSAR_SWS_DiagnosticOverIP</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Configured EID (Entity ID of) for vehicle identification/vehicle announcement. Only necessary if DoIPUseMacAddressForIdentification is set to FALSE.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.8 DoIPConfigSet; PDF page 97 (printed page 97)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPGid</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00015</P>
+          <P>ParentContainer: DoIPConfigSet</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 281474976710655</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Post-Build Variant true</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Configured GID (Group ID of) for vehicle identification/vehicle announcement.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.8 DoIPConfigSet; PDF page 97 (printed page 97)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPLogicalAddress</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00020</P>
+          <P>ParentContainer: DoIPConfigSet</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant true</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Describes the logical address of the DoIP entity, i.e. the LA that will route diagnostic requests to the Dcm of the DoIP entity.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.8 DoIPConfigSet; PDF page 98 (printed page 98)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPAliveCheckResponseTimeout</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00009</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucFloatParamDef</P>
+          <P>RangeOrReferenceTarget: [0 .. INF]</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Timeout in [s] for waiting for a response to an Alive Check request before the connection is considered to be disconnected. Represents parameter T_TCP_AliveCheck of ISO 13400-2:2012.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 99 (printed page 99)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPGeneralInactivityTime</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00068</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucFloatParamDef</P>
+          <P>RangeOrReferenceTarget: ]0 .. INF[</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Timeout in [s] for maximum inactivity of a TCP socket connection before the DoIP module will close the according socket connection. Represents parameter T_TCP_General_Inactivity of ISO 13400-2:2012</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 100 (printed page 100)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPInitialInactivityTime</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00010</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucFloatParamDef</P>
+          <P>RangeOrReferenceTarget: ]0 .. INF[</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Timeout in [s] used for initial inactivity of a connected TCP socket connection directly after socket connection. Represents parameter T_TCP_Initial_Inactivity of ISO 13400-2:2012</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 100 (printed page 100)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPInitialVehicleAnnouncementTime</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00008</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucFloatParamDef</P>
+          <P>RangeOrReferenceTarget: [0 .. INF]</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Time to wait in [s] for sending first vehicle anouncement message after IP address assignment. Represents parameter A_DoIP_Announce_Wait of ISO 13400-2:2012</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 100 (printed page 100)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPInterfaceActLineCtrl</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00101</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: This attribute defines whether the network interface • is started "on-demand" when an activation line is sensed (TRUE) or • is always available (FALSE).</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 101 (printed page 101)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPInterfaceAnnouncementStart</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00099</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucEnumerationParamDef</P>
+          <P>RangeOrReferenceTarget: DOIP_AUTOMATIC_ANN AUTOMATIC announcement</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: DOIP_AUTOMATIC_ANNOUNCE</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: This attribute defines, when vehicle announcement is started on a DoIPInterface • Automatic: As soon as the underlying UDP vehicle announcement connection switches to SOAD_SOCON_ONLINE • OnTrigger: As soon as the API DoIP_TriggerVehicleAnnouncement is called for the given DoIPInterface instance</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 101 (printed page 101)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPInterfaceId</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00098</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucIntegerParamDef (Symbolic Name generated for this parameter)</P>
+          <P>RangeOrReferenceTarget: 0 .. 255</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: This parameter is an identifier of the DoIPInterface. The value of this parameter will be assigned to the symbolic name derived from the container short name.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 102 (printed page 102)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPMaxTesterConnections</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00012</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 1 .. 255</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Maximum amount of tester connections that shall be maintained at one time before alive check is performed.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 102 (printed page 102)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPUseMacAddressForIdentification</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00013</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Provided the information if a configured EID at vehicle identification response/vehicle announment is used or the MAC address. TRUE: Use MAC Address instead of EID for Vehicle identification/announcement. FALSE: Use configured EID for vehicle identification/announcement. Dependencies: DoIPEID</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 102 (printed page 102)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPUseVehicleIdentificationSyncStatus</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00016</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Defines if the optional VIN/GID synchronization status is used additionally in the vehicle identification/announcement.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 103 (printed page 103)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPVehicleAnnouncementCount</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00094</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 1 .. 255</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Number of vehicle announcement messages on IP address assignment. Represents parameter A_DoIP_Announce_Num of ISO 13400-2:2012.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 103 (printed page 103)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPVehicleAnnouncementInterval</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00007</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucFloatParamDef</P>
+          <P>RangeOrReferenceTarget: [0 .. INF]</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Time to wait in [s] for sending subsequent vehicle anouncement messages. Represents parameter A_DoIP_Announce_Interval of ISO 13400-2:2012</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF page 104 (printed page 104)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPChannelSARef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00070</P>
+          <P>ParentContainer: DoIPChannel</P>
+          <P>Type: Reference to DoIPTester</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Value</P>
+          <P>Description: Reference to the DoIPTester.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.10 DoIPChannel; PDF page 105 (printed page 105)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPChannelTARef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00071</P>
+          <P>ParentContainer: DoIPChannel</P>
+          <P>Type: Reference to DoIPTargetAddress</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Value</P>
+          <P>Description: Reference to the target address.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.10 DoIPChannel; PDF page 106 (printed page 106)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPPduRRxPduId</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00057</P>
+          <P>ParentContainer: DoIPPduRRxPdu</P>
+          <P>Type: EcucIntegerParamDef (Symbolic Name generated for this parameter)</P>
+          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIPPduRRxPduId is required by the API call DoIP_TpCancelReceive.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.11 DoIPPduRRxPdu; PDF page 107 (printed page 107)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPPduRRxPduRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00058</P>
+          <P>ParentContainer: DoIPPduRRxPdu</P>
+          <P>Type: Reference to Pdu</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Value</P>
+          <P>Description: Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.11 DoIPPduRRxPdu; PDF page 108 (printed page 108)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPPduRTxPduId</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00060</P>
+          <P>ParentContainer: DoIPPduRTxPdu</P>
+          <P>Type: EcucIntegerParamDef (Symbolic Name generated for this parameter)</P>
+          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIPPduRTxPduId is required by DoIP_TpTransmit or DoIP_IfTransmit and DoIP_TpCancelTransmit.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.12 DoIPPduRTxPdu; PDF page 108 (printed page 108)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPPduType</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00075</P>
+          <P>ParentContainer: DoIPPduRTxPdu</P>
+          <P>Type: EcucEnumerationParamDef</P>
+          <P>RangeOrReferenceTarget: DOIP_IFPDU DOIP_IFPDU for UUDT messages,</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: DOIP_TPPDU</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: API Type to use for communication with PduR. DOIP_IFPDU for UUDT messages, DOIP_TPPDU for all other diagnostic messages.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.12 DoIPPduRTxPdu; PDF page 108 (printed page 108)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPPduRTxPduRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00059</P>
+          <P>ParentContainer: DoIPPduRTxPdu</P>
+          <P>Type: Reference to Pdu</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Value</P>
+          <P>Description: Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.12 DoIPPduRTxPdu; PDF page 109 (printed page 109)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+      <LABELS>
+        <L-4>DoIPTargetAddressValue</L-4>
+      </LABELS>
+      <ANNOTATION-TEXT>
+        <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+        <P>ECUCItemID: ECUC_DoIP_00054</P>
+        <P>ParentContainer: DoIPTargetAddress</P>
+        <P>Type: EcucIntegerParamDef</P>
+        <P>Range: 0 .. 65535</P>
+        <P>Multiplicity: 1</P>
+        <P>DefaultValue: Not specified in source</P>
+        <P>PostBuildVariant: true</P>
+        <P>ValueConfigurationClass: VARIANT-PRE-COMPILE, VARIANT-LINK-TIME, VARIANT-POST-BUILD</P>
+        <P>Scope: local</P>
+        <P>Description: Valid Target Address of a DoIP target address.</P>
+        <P>SourceReference: Section 10.2.14, PDF page 112</P>
+      </ANNOTATION-TEXT>
+    </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTargetAddressValue</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00054</P>
+          <P>ParentContainer: DoIPTargetAddress</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant true</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Valid Target Address of a DoIP target address.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.14 DoIPTargetAddress; PDF page 111 (printed page 111)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRequestAddressAssignment</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00095</P>
+          <P>ParentContainer: DoIPTcpConnection</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: true</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIP module shall request IP address assignment by calling SoAd_RequestIpAddrAssignment() for the TcpIpLocalAddr related to this DoIpConnection.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.15 DoIPTcpConnection; PDF page 112 (printed page 112)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTcpConnectionSecurityRequired</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00097</P>
+          <P>ParentContainer: DoIPTcpConnection</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: false</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: Indicates if the associated TCP socket uses a secure connection (e.g. TLS)</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.15 DoIPTcpConnection; PDF page 112 (printed page 112)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdTcpRxPduId</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00082</P>
+          <P>ParentContainer: DoIPSoAdTcpRxPdu</P>
+          <P>Type: EcucIntegerParamDef (Symbolic Name generated for this parameter)</P>
+          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIPSoAdTcpRxPduId is required by the API call DoIP_SoAdTpRxIndication to receive I-PDUs from the SoAd.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.16 DoIPSoAdTcpRxPdu; PDF page 113 (printed page 113)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdTcpRxPduRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00083</P>
+          <P>ParentContainer: DoIPSoAdTcpRxPdu</P>
+          <P>Type: Reference to Pdu</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Value</P>
+          <P>Description: Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.16 DoIPSoAdTcpRxPdu; PDF page 113 (printed page 113)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdTcpTxPduId</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00085</P>
+          <P>ParentContainer: DoIPSoAdTcpTxPdu</P>
+          <P>Type: EcucIntegerParamDef (Symbolic Name generated for this parameter)</P>
+          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIPSoAdTcpTxPduId is required by the API call DoIP_SoAdTpTxConfirmation that is called by the SoAd to confirm that the IPdu has been transmitted successfully.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.17 DoIPSoAdTcpTxPdu; PDF page 114 (printed page 114)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdTcpTxPduRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00084</P>
+          <P>ParentContainer: DoIPSoAdTcpTxPdu</P>
+          <P>Type: Reference to Pdu</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Value</P>
+          <P>Description: Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.17 DoIPSoAdTcpTxPdu; PDF page 114 (printed page 114)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRequestAddressAssignment</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00095</P>
+          <P>ParentContainer: DoIPUdpConnection</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: true</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIP module shall request IP address assignment by calling SoAd_RequestIpAddrAssignment() for the TcpIpLocalAddr related to this DoIpConnection.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.18 DoIPUdpConnection; PDF page 115 (printed page 115)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdUdpRxPduId</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00048</P>
+          <P>ParentContainer: DoIPSoAdUdpRxPdu</P>
+          <P>Type: EcucIntegerParamDef (Symbolic Name generated for this parameter)</P>
+          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIPSoAdUdpRxPduId is required by the API call DoIP_SoAdIfRxIndication to receive I-PDUs from the SoAd.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.19 DoIPSoAdUdpRxPdu; PDF page 115 (printed page 115)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdUdpRxPduRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00049</P>
+          <P>ParentContainer: DoIPSoAdUdpRxPdu</P>
+          <P>Type: Reference to Pdu</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Value</P>
+          <P>Description: Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.19 DoIPSoAdUdpRxPdu; PDF page 116 (printed page 116)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdUdpTxPduId</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00051</P>
+          <P>ParentContainer: DoIPSoAdUdpTxPdu</P>
+          <P>Type: EcucIntegerParamDef (Symbolic Name generated for this parameter)</P>
+          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIPSoAdUdpTxPduId is required by the API call DoIP_SoAdIfTxConfirmation that is called by the SoAd to confirm that the IPdu has been transmitted successfully.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.20 DoIPSoAdUdpTxPdu; PDF page 116 (printed page 116)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdUdpTxPduRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00050</P>
+          <P>ParentContainer: DoIPSoAdUdpTxPdu</P>
+          <P>Type: Reference to Pdu</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Value</P>
+          <P>Description: Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.20 DoIPSoAdUdpTxPdu; PDF page 117 (printed page 117)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRequestAddressAssignment</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00095</P>
+          <P>ParentContainer: DoIPUdpVehicleAnnouncementConnection</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: true</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIP module shall request IP address assignment by calling SoAd_RequestIpAddrAssignment() for the TcpIpLocalAddr related to this DoIpConnection.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.21 DoIPUdpVehicleAnnouncementConnection; PDF page 117 (printed page 117)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdUdpVehicleAnnouncementTxPduId</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00078</P>
+          <P>ParentContainer: DoIPSoAdUdpVehicleAnnouncementTxPdu</P>
+          <P>Type: EcucIntegerParamDef (Symbolic Name generated for this parameter)</P>
+          <P>RangeOrReferenceTarget: 0 .. 4294967295</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: The DoIPSoAdUdpVehicleAnnouncementTxPduId is required by the API call DoIP_SoAdIfTxConfirmation() that is called by the SoAd to confirm that the IPdu has been transmitted successfully.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.22 DoIPSoAdUdpVehicleAnnouncementTxPdu; PDF page 118 (printed page 118)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdUdpVehicleAnnouncementTxPduRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00079</P>
+          <P>ParentContainer: DoIPSoAdUdpVehicleAnnouncementTxPdu</P>
+          <P>Type: Reference to Pdu</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Value</P>
+          <P>Description: Reference to the "global" PDU structure to allow harmonization of handle IDs in the COM-Stack.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.22 DoIPSoAdUdpVehicleAnnouncementTxPdu; PDF page 118 (printed page 118)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationNumber</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00033</P>
+          <P>ParentContainer: DoIPRoutingActivation</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 255</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant true</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Identifies the Routing activation Number which is received for a DoIP routing activation request message.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.23 DoIPRoutingActivation; PDF page 119 (printed page 119)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationSecurityRequired</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00096</P>
+          <P>ParentContainer: DoIPRoutingActivation</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: false</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: Indicates if a routing activation requires a secure TCP connection</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.23 DoIPRoutingActivation; PDF page 119 (printed page 119)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTargetAddressRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00034</P>
+          <P>ParentContainer: DoIPRoutingActivation</P>
+          <P>Type: Reference to DoIPTargetAddress</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1..65535</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Reference to all DoIPTargetAddress which are activated on this Routing activation.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.23 DoIPRoutingActivation; PDF page 120 (printed page 120)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationAuthenticationFunc</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00039</P>
+          <P>ParentContainer: DoIPRoutingActivationAuthenticationCallback</P>
+          <P>Type: EcucFunctionNameDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Regular Expression</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Direct C Callback function to trigger the authentication function for routing activation. If the DoIPRoutingActivationAuthenticationFunc parameter is present, the DoIP module will not use an RPort of ServiceInterface &lt;RoutingActivation&gt;_RoutingActivation but call the configured function.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.24 DoIPRoutingActivationAuthenticationCallback; PDF page 121 (printed page 121)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationAuthenticationReqLength</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00040</P>
+          <P>ParentContainer: DoIPRoutingActivationAuthenticationCallback</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 4</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Describes the amount of bytes used to handle to the authentication function on routing activation. If 0 is configured as length the parameter AuthenticationReqData will not be handled to the API.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.24 DoIPRoutingActivationAuthenticationCallback; PDF page 122 (printed page 122)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationAuthenticationResLength</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00041</P>
+          <P>ParentContainer: DoIPRoutingActivationAuthenticationCallback</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 4</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Describes the amount of bytes used to read by the authentication function on routing activation. If 0 is configured as length the parameter AuthenticationResData will not be fetched via the API.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.24 DoIPRoutingActivationAuthenticationCallback; PDF page 122 (printed page 122)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationConfirmationFunc</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00036</P>
+          <P>ParentContainer: DoIPRoutingActivationConfirmationCallback</P>
+          <P>Type: EcucFunctionNameDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Regular Expression</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Direct C Callback function to trigger the confirmation function for routing activation. If the DoIPRoutingActivationConfirmationFunc parameter is present the DoIP module will not use an RPort of ServiceInterface &lt;RoutingActivation&gt;_RoutingActivation but call the configured function.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.25 DoIPRoutingActivationConfirmationCallback; PDF page 123 (printed page 123)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationConfirmationReqLength</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00037</P>
+          <P>ParentContainer: DoIPRoutingActivationConfirmationCallback</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 4</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Describes the amount of bytes used to handle to the confirmation function on routing activation. If 0 is configured as length the parameter ConfirmedReqData will not be handled to the API.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.25 DoIPRoutingActivationConfirmationCallback; PDF page 123 (printed page 123)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationConfirmationResLength</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00038</P>
+          <P>ParentContainer: DoIPRoutingActivationConfirmationCallback</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 4</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant false</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Describes the amount of bytes used to read by the confirmation function on routing activation. If 0 is configured as length the parameter ConfirmedResData will not be fetched via the API.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.25 DoIPRoutingActivationConfirmationCallback; PDF page 124 (printed page 124)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPNumByteDiagAckNack</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00042</P>
+          <P>ParentContainer: DoIPTester</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 4294967295</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant true</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Specifies the number of original Diagnostic request bytes the DoIP entity responses on a NACK of a diagnostic response message to the Tester.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.26 DoIPTester; PDF page 124 (printed page 124)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTesterSA</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00043</P>
+          <P>ParentContainer: DoIPTester</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Post-Build Variant true</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Source Address of the Tester sent via routing activation or diagnostic message.</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.26 DoIPTester; PDF page 125 (printed page 125)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00062</P>
+          <P>ParentContainer: DoIPTester</P>
+          <P>Type: Reference to DoIPRoutingActivation</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1..255</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Reference to a DoIPRoutingActivation describing the possible routing activations of the DoIPTester</P>
+          <P>Relationship: Not specified in source</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.26 DoIPTester; PDF page 126 (printed page 126)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+    </ELEMENTS>
+  </AR-PACKAGE>
+</AUTOSAR>

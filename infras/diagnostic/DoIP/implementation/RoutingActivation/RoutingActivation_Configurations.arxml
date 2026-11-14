@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00050.xsd">
+  <AR-PACKAGE>
+    <SHORT-NAME>DoIP_RoutingActivation_Extract</SHORT-NAME>
+    <ELEMENTS>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DocumentMetadata</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>Release: AUTOSAR Classic Platform R21-11</P>
+          <P>DocumentID: 418</P>
+          <P>Scope: Routing Activation configuration and supporting configuration explicitly used by its processing flow</P>
+          <P>Caveat: Traceable knowledge extract in an AUTOSAR-style XML envelope; not validated against the AUTOSAR ECUC schema and not intended for direct ECU configuration-tool import.</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationNumber</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPRoutingActivationNumber</P>
+          <P>ECUCItemID: ECUC_DoIP_00033</P>
+          <P>ParentContainer: DoIPRoutingActivation</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0..255</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Identifies the Routing Activation Number expected in a Routing Activation request.</P>
+          <P>RoutingActivationRelationship: Matched against request Activation Type under SWS_DoIP_00108.</P>
+          <P>SourceReference: 10.2.23, PDF p. 119; 7.3.2.3.1, PDF p. 37</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTargetAddressRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPTargetAddressRef</P>
+          <P>ECUCItemID: ECUC_DoIP_00034</P>
+          <P>ParentContainer: DoIPRoutingActivation</P>
+          <P>Type: Reference to DoIPTargetAddress</P>
+          <P>RangeOrReferenceTarget: Target: DoIPTargetAddress</P>
+          <P>Multiplicity: 1..65535</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Reference to all DoIPTargetAddress entries activated by this Routing Activation.</P>
+          <P>RoutingActivationRelationship: Successful activation enables routing to configured target addresses under SWS_DoIP_00113.</P>
+          <P>SourceReference: 10.2.23, PDF p. 120; 7.3.2.3.1, PDF p. 38</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationSecurityRequired</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPRoutingActivationSecurityRequired</P>
+          <P>ECUCItemID: ECUC_DoIP_00096</P>
+          <P>ParentContainer: DoIPRoutingActivation</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Boolean</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: false</P>
+          <P>PostBuildVariant: Not stated in extracted table</P>
+          <P>Description: Indicates whether this Routing Activation requires a secure TCP connection.</P>
+          <P>RoutingActivationRelationship: Evaluated with the TCP connection security setting under SWS_DoIP_00294/00295.</P>
+          <P>SourceReference: 10.2.23, PDF p. 120; 7.2, PDF p. 27</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationAuthenticationFunc</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPRoutingActivationAuthenticationFunc</P>
+          <P>ECUCItemID: ECUC_DoIP_00037</P>
+          <P>ParentContainer: DoIPRoutingActivationAuthenticationCallback</P>
+          <P>Type: EcucFunctionNameDef</P>
+          <P>RangeOrReferenceTarget: Function name</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: Not specified</P>
+          <P>Description: Function name for the Routing Activation authentication callback.</P>
+          <P>RoutingActivationRelationship: If omitted while the callback container is configured, the spec describes use of an RPort of service interface &lt;RoutingActivation&gt;_RoutingActivation named CB&lt;RoutingActivation&gt;RoutingActivation. See SWS_DoIP_00109–00111 and API SWS_DoIP_00049.</P>
+          <P>SourceReference: 10.2.24, PDF pp. 120–121; 8.6.3.3, PDF p. 73</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationAuthenticationReqLength</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPRoutingActivationAuthenticationReqLength</P>
+          <P>ECUCItemID: ECUC_DoIP_00040</P>
+          <P>ParentContainer: DoIPRoutingActivationAuthenticationCallback</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0..4 bytes</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Number of OEM-specific request bytes used by authentication.</P>
+          <P>RoutingActivationRelationship: If non-zero, the configured request bytes are supplied to the authentication callback.</P>
+          <P>SourceReference: 10.2.24, PDF p. 121; 8.6.3.3, PDF p. 73</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationAuthenticationResLength</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPRoutingActivationAuthenticationResLength</P>
+          <P>ECUCItemID: ECUC_DoIP_00041</P>
+          <P>ParentContainer: DoIPRoutingActivationAuthenticationCallback</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0..4 bytes</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Number of bytes used for authentication response data; if zero, AuthenticationResData is not fetched via the API.</P>
+          <P>RoutingActivationRelationship: If non-zero, authentication response bytes are included in the Routing Activation Response OEM-specific field under SWS_DoIP_00120.</P>
+          <P>SourceReference: 10.2.24, PDF p. 121; 7.3.2.3.1–7.3.2.3.2, PDF pp. 37–39</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationConfirmationFunc</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPRoutingActivationConfirmationFunc</P>
+          <P>ECUCItemID: ECUC_DoIP_00064</P>
+          <P>ParentContainer: DoIPRoutingActivationConfirmationCallback</P>
+          <P>Type: EcucFunctionNameDef</P>
+          <P>RangeOrReferenceTarget: Function name</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: Not specified</P>
+          <P>Description: Function name for the Routing Activation confirmation callback.</P>
+          <P>RoutingActivationRelationship: If omitted while the callback container is configured, the spec describes use of an RPort of service interface &lt;RoutingActivation&gt;_RoutingActivation named CB&lt;RoutingActivation&gt;RoutingActivation. See SWS_DoIP_00112, SWS_DoIP_00114 and SWS_DoIP_00274.</P>
+          <P>SourceReference: 10.2.25, PDF pp. 121–122; 8.6.3.2, PDF p. 72</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationConfirmationReqLength</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPRoutingActivationConfirmationReqLength</P>
+          <P>ECUCItemID: ECUC_DoIP_00065</P>
+          <P>ParentContainer: DoIPRoutingActivationConfirmationCallback</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0..4 bytes</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Number of OEM-specific request bytes supplied to the confirmation function.</P>
+          <P>RoutingActivationRelationship: If non-zero, the callback handles the configured trailing bytes of the OEM-specific request field.</P>
+          <P>SourceReference: 10.2.25, PDF p. 122; 8.6.3.2, PDF p. 72</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationConfirmationResLength</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPRoutingActivationConfirmationResLength</P>
+          <P>ECUCItemID: ECUC_DoIP_00066</P>
+          <P>ParentContainer: DoIPRoutingActivationConfirmationCallback</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0..4 bytes</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Number of OEM-specific response bytes returned by the confirmation function.</P>
+          <P>RoutingActivationRelationship: If non-zero and confirmation returns E_OK, response bytes are attached to the OEM-specific field under SWS_DoIP_00112/SWS_DoIP_00120.</P>
+          <P>SourceReference: 10.2.25, PDF p. 122; 7.3.2.3.1–7.3.2.3.2, PDF pp. 38–39</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTesterSA</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPTesterSA</P>
+          <P>ECUCItemID: ECUC_DoIP_00043</P>
+          <P>ParentContainer: DoIPTester</P>
+          <P>Type: EcucIntegerParamDef</P>
+          <P>RangeOrReferenceTarget: 0..65535 (16-bit logical address)</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: Source Address of the tester sent via Routing Activation or diagnostic message.</P>
+          <P>RoutingActivationRelationship: Request Source Address is matched against configured DoIPTesterSA under SWS_DoIP_00102; echoed as Logical Address Tester under SWS_DoIP_00116.</P>
+          <P>SourceReference: 10.2.26, PDF p. 125; 7.3.2.3.1–7.3.2.3.2, PDF pp. 36 and 39</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationRef</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPRoutingActivationRef</P>
+          <P>ECUCItemID: ECUC_DoIP_00062</P>
+          <P>ParentContainer: DoIPTester</P>
+          <P>Type: Reference to DoIPRoutingActivation</P>
+          <P>RangeOrReferenceTarget: Target: DoIPRoutingActivation</P>
+          <P>Multiplicity: 1..255</P>
+          <P>DefaultValue: Not specified</P>
+          <P>PostBuildVariant: true</P>
+          <P>Description: References possible Routing Activations for this tester.</P>
+          <P>RoutingActivationRelationship: Activation Type is matched against DoIPRoutingActivationNumber in one of the referenced activations under SWS_DoIP_00108.</P>
+          <P>SourceReference: 10.2.26, PDF p. 125; 7.3.2.3.1, PDF p. 37</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPMaxTesterConnections</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPMaxTesterConnections</P>
+          <P>ECUCItemID: Not verified in extracted parameter table</P>
+          <P>ParentContainer: DoIPGeneral (parent to verify)</P>
+          <P>Type: Not verified</P>
+          <P>RangeOrReferenceTarget: Not verified</P>
+          <P>Multiplicity: Not verified</P>
+          <P>DefaultValue: Not verified</P>
+          <P>PostBuildVariant: Not verified</P>
+          <P>Description: Maximum registered tester connections considered during Routing Activation.</P>
+          <P>RoutingActivationRelationship: SWS_DoIP_00107 compares registered connections against this parameter. Exact ECUC item ID, range, default, and type need verification in the full configuration table.</P>
+          <P>SourceReference: 7.3.2.3.1, PDF p. 36; configuration table not verified in this extraction</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPAliveCheckResponseTimeout</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPAliveCheckResponseTimeout</P>
+          <P>ECUCItemID: Not verified in extracted parameter table</P>
+          <P>ParentContainer: Parent container to verify</P>
+          <P>Type: Not verified</P>
+          <P>RangeOrReferenceTarget: Not verified</P>
+          <P>Multiplicity: Not verified</P>
+          <P>DefaultValue: Not verified</P>
+          <P>PostBuildVariant: Not verified</P>
+          <P>Description: Configured wait time for an Alive Check response.</P>
+          <P>RoutingActivationRelationship: Used by SWS_DoIP_00105 and SWS_DoIP_00140. Exact unit, range, default, and ECUC item ID need verification in the full configuration table.</P>
+          <P>SourceReference: 7.3.2.3.1, PDF p. 36; 7.3.2.4.1, PDF p. 39; configuration table not verified</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTcpConnectionSecurityRequired</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPTcpConnectionSecurityRequired</P>
+          <P>ECUCItemID: Not verified in extracted parameter table</P>
+          <P>ParentContainer: DoIPTcpConnection</P>
+          <P>Type: EcucBooleanParamDef</P>
+          <P>RangeOrReferenceTarget: Boolean</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: false (if not set)</P>
+          <P>PostBuildVariant: Not verified</P>
+          <P>Description: Indicates whether the TCP connection is configured to require a secure connection.</P>
+          <P>RoutingActivationRelationship: Evaluated together with DoIPRoutingActivationSecurityRequired under SWS_DoIP_00294/00295.</P>
+          <P>SourceReference: 10.2.15, PDF p. 113; 7.2, PDF p. 27; ECUC item ID/table details not verified</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPLogicalAddress</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>ParameterName: DoIPLogicalAddress</P>
+          <P>ECUCItemID: Not verified in extracted parameter table</P>
+          <P>ParentContainer: DoIP</P>
+          <P>Type: Not verified</P>
+          <P>RangeOrReferenceTarget: Not verified</P>
+          <P>Multiplicity: Not verified</P>
+          <P>DefaultValue: Not verified</P>
+          <P>PostBuildVariant: Not verified</P>
+          <P>Description: Configured logical address of the DoIP entity.</P>
+          <P>RoutingActivationRelationship: Used as Logical Address DoIP entity in Routing Activation Response under SWS_DoIP_00118. Exact configuration-table details not included in this extract.</P>
+          <P>SourceReference: 7.3.2.3.2, PDF p. 39; configuration table not verified</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+    </ELEMENTS>
+  </AR-PACKAGE>
+</AUTOSAR>

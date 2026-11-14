@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ar:AUTOSAR xmlns:ar="http://autosar.org/schema/r4.0">
+  <ar:AR-PACKAGE>
+    <ar:SHORT-NAME>Requirements_Extract</ar:SHORT-NAME>
+    <ar:ELEMENTS>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00090</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic power mode information request (payload type 0x4003)</ar:L-4>
+          <ar:L-4>PDF page 40; printed page 40</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: When the module receives a DoIP message with payload Type 0x4003 on a connection different than a configured DoIPUdpConnection, the module shall discard the DoIP message.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: DoIPUdpConnection</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic power mode information request (payload type 0x4003); PDF page 40; printed page 40.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00091</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic power mode information request (payload type 0x4003)</ar:L-4>
+          <ar:L-4>PDF page 40; printed page 40</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The expected payload length (see [SWS_DoIP_00019]) for diagnostic power mode information request message with payload type 0x4003 shall be exactly 0.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: None explicitly stated</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic power mode information request (payload type 0x4003); PDF page 40; printed page 40.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00092</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic power mode information request (payload type 0x4003)</ar:L-4>
+          <ar:L-4>PDF page 40; printed page 40</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: After a valid Diagnostic power mode request message, the DoIP module shall send a Diagnostic Power mode information response message ([SWS_DoIP_00093]) on the configured DoIPUdpConnection.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: DoIPUdpConnection</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic power mode information request (payload type 0x4003); PDF page 40; printed page 40.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00093</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic power mode information response (payload type 0x4004)</ar:L-4>
+          <ar:L-4>PDF page 40–41; printed page 40–41</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The "Diagnostic Power Mode" byte of diagnostic power mode information response message contains the 1 Byte value retrieved by a call to the configured DoIPPowerModeCallback (for the signature see &lt;User&gt;DoIPGetPowerModeStatus, [SWS_DoIP_00047]). If the function returns E_OK, the "Diagnostic Power Mode" shall be set to the retrieved value of PowerStateReady, otherwise it shall be set to 0x00 to indicate that the power mode is not ready.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: DoIPPowerModeCallback</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic power mode information response (payload type 0x4004); PDF page 40–41; printed page 40–41.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00094</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic entity status request (payload type 0x4001)</ar:L-4>
+          <ar:L-4>PDF page 41; printed page 41</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: When the module receives a DoIP message with payload Type 0x4001 on a connection different than a configured DoIPUdpConnection, the module shall discard the DoIP message.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: DoIPUdpConnection</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic entity status request (payload type 0x4001); PDF page 41; printed page 41.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00095</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic entity status request (payload type 0x4001)</ar:L-4>
+          <ar:L-4>PDF page 41; printed page 41</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The expected payload length (see [SWS_DoIP_00019]) for diagnostic entity status request message with payload type 0x4001 shall be exactly 0.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: None explicitly stated</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic entity status request (payload type 0x4001); PDF page 41; printed page 41.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00096</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic entity status request (payload type 0x4001)</ar:L-4>
+          <ar:L-4>PDF page 41; printed page 41</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: After a valid Diagnostic entity status request message, the DoIP module shall send a Diagnostic entity status response message (see Table 7.11) on the configured DoIPUdpConnection.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: DoIPUdpConnection</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic entity status request (payload type 0x4001); PDF page 41; printed page 41.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00097</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic entity status response (payload type 0x4002)</ar:L-4>
+          <ar:L-4>PDF page 41; printed page 41</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The "Node Type" byte of a diagnostic entity status response message shall contain the configured DoIPNodeType, whereas DOIP_GATEWAY shall be represented by 0x00 and DOIP_NODE shall be represented by 0x01.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: DoIPNodeType</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic entity status response (payload type 0x4002); PDF page 41; printed page 41.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00098</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic entity status response (payload type 0x4002)</ar:L-4>
+          <ar:L-4>PDF page 41; printed page 41</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The "Max open sockets" byte of a diagnostic entity status response message shall contain the configured DoIPMaxTesterConnections. This parameter represents the maximum number of concurrent TCP_DATA sockets allowed with this DoIP entity, excluding the reserve socket required for socket handling as defined in the ISO 13400-2 standard.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: DoIPMaxTesterConnections</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic entity status response (payload type 0x4002); PDF page 41; printed page 41.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00099</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic entity status response (payload type 0x4002)</ar:L-4>
+          <ar:L-4>PDF page 42; printed page 42</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The "Currently open sockets" byte of a diagnostic entity status response message shall contain the currently active connections, based on the information described in [SWS_DoIP_00002].</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: None explicitly stated; references [SWS_DoIP_00002]</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic entity status response (payload type 0x4002); PDF page 42; printed page 42.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+      <ar:ANNOTATION>
+        <ar:SHORT-NAME>SWS_DoIP_00100</ar:SHORT-NAME>
+        <ar:LABELS>
+          <ar:L-4>AUTOSAR_SWS_DiagnosticOverIP.pdf</ar:L-4>
+          <ar:L-4>7.3.2.5 Diagnostic entity status response (payload type 0x4002)</ar:L-4>
+          <ar:L-4>PDF page 42; printed page 42</ar:L-4>
+        </ar:LABELS>
+        <ar:ANNOTATION-TEXT>
+          <ar:P>RequirementText: The "Max data size" bytes are only supported if the configuration parameter DoIPEntityStatusMaxByteFieldUse is set to TRUE. In this case, the diagnostic entity status response message shall contain the configured DoIPMaxRequestBytes in the "Max data size" field.</ar:P>
+          <ar:P>Module: DoIP (Diagnostic over IP)</ar:P>
+          <ar:P>Constraints: As stated in the requirement text; see associated payload type and connection restrictions.</ar:P>
+          <ar:P>RelatedConfiguration: DoIPEntityStatusMaxByteFieldUse; DoIPMaxRequestBytes</ar:P>
+          <ar:P>EvidenceClassification: Explicit</ar:P>
+          <ar:P>SourceReference: AUTOSAR_SWS_DiagnosticOverIP.pdf, section 7.3.2.5, Diagnostic entity status response (payload type 0x4002); PDF page 42; printed page 42.</ar:P>
+        </ar:ANNOTATION-TEXT>
+      </ar:ANNOTATION>
+    </ar:ELEMENTS>
+  </ar:AR-PACKAGE>
+</ar:AUTOSAR>

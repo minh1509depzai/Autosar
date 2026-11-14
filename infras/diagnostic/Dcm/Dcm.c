@@ -126,8 +126,10 @@ BufReq_ReturnType Dcm_StartOfReception(PduIdType id, const PduInfoType *info,
                return BUFREQ_E_NOT_OK);
   DET_VALIDATE(NULL != bufferSizePtr, 0x46, DCM_E_PARAM_POINTER, return BUFREQ_E_NOT_OK);
 
-  if ((2u == TpSduLength) && (0x3Eu == info->SduDataPtr[0]) && (0x80u == info->SduDataPtr[1])) {
-    /* @SWS_Dcm_00557, @SWS_Dcm_01145
+  if ((2u == TpSduLength) && (0x3Eu == info->SduDataPtr[0]) && (0x80u == info->SduDataPtr[1])) 
+  {
+    /* @SWS_Dcm_00557 
+     * @SWS_Dcm_01145
      * Only support 3E request without positive response */
     if (context->currentSession != DCM_DEFAULT_SESSION) {
       context->timerS3Server = config->timing->S3Server;
@@ -140,6 +142,10 @@ BufReq_ReturnType Dcm_StartOfReception(PduIdType id, const PduInfoType *info,
     ret = BUFREQ_E_BUSY;
   } else if (DCM_BUFFER_IDLE == context->rxBufferState) {
     if (TpSduLength > config->rxBufferSize) {
+      /* @SWS_Dcm_00141
+       * During the reception of a multi-frame request, S3 timer will be stopped */
+      context->timerS3ServerState = FALSE;
+
       /* @SWS_Dcm_00444 */
       ret = BUFREQ_E_OVFL;
     } else if (0u == TpSduLength) {
@@ -275,6 +281,7 @@ BufReq_ReturnType Dcm_CopyTxData(PduIdType id, const PduInfoType *info, const Re
 
 void Dcm_TpTxConfirmation(PduIdType id, Std_ReturnType result) {
   Dcm_ContextType *context = Dcm_GetContext();
+  Dcm_ConfigType *config = Dcm_GetConfig();
 
   DET_VALIDATE(id < Dcm_GetConfig()->numOfChls, 0x48, DCM_E_PARAM, return);
 
@@ -293,6 +300,11 @@ void Dcm_TpTxConfirmation(PduIdType id, Std_ReturnType result) {
     /* context->curPduId = DCM_INVALID_PDU_ID; */
     context->txBufferState = DCM_BUFFER_IDLE;
   }
+
+  /* restart S3Server if any response transmited */
+  /* @SWS_Dcm_00141 */
+  context->timerS3Server = config->timing->S3Server;
+  context->timerS3ServerState = TRUE;
 }
 
 void Dcm_GetVersionInfo(Std_VersionInfoType *versionInfo) {

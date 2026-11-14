@@ -48,6 +48,7 @@ void Dcm_DslInit(void) {
   context->requestLevel = DCM_SEC_LEV_LOCKED;
 #endif
   context->timerS3Server = 0;
+  context->timerS3ServerState = TRUE;
   context->timerP2Server = 0;
   context->opStatus = DCM_INITIAL;
 #if defined(DCM_USE_SERVICE_REQUEST_DOWNLOAD) || defined(DCM_USE_SERVICE_REQUEST_UPLOAD)
@@ -227,10 +228,15 @@ void Dcm_DslMainFunction(void) {
     }
   }
 
-  if (context->timerS3Server > 0u) {
+  if ( (context->timerS3Server > 0u) &&
+       (context->timerS3ServerState == TRUE) ) 
+  {
     context->timerS3Server--;
     if (0u == context->timerS3Server) {
+
+      /* @SWS_Dcm_00140 */
       Dcm_SessionChangeIndication(context->currentSession, DCM_DEFAULT_SESSION, TRUE);
+  
       (void)memset(context, 0, sizeof(Dcm_ContextType));
       context->rxBufferState = DCM_BUFFER_IDLE;
       context->txBufferState = DCM_BUFFER_IDLE;
