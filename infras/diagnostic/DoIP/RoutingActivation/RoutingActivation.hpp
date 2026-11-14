@@ -9,7 +9,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "../DoIPMessage/DoIPMessage.hpp"
+#include "../DoIPMessage/Implementation/ExportHeaderInterface/DoIPMessage.hpp"
 
 namespace as {
 namespace doip {

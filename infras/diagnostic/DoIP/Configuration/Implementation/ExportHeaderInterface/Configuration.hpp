@@ -385,9 +385,9 @@
 #define DoIPEntityStatusMaxByteFieldUse  DOIP_CFG_FALSE
 /**
  * ECUC_DoIP_00065; DoIPGeneral; Integer, 0 .. 255, multiplicity 1.
- * PROJECT EXAMPLE: 0 (the description permits only 0 or 255).
+ * PROJECT EXAMPLE: 255 (the description permits only 0 or 255).
  */
-#define DoIPGIDInvalidityPattern  0U
+#define DoIPGIDInvalidityPattern  255U
 /**
  * ECUC_DoIP_00073; DoIPGeneral; Integer, 5 .. 255, multiplicity 1.
  * PROJECT EXAMPLE: minimum valid size.
@@ -414,6 +414,7 @@
  * PROJECT EXAMPLE: disabled; the extraction has no scalar default.
  */
 #define DoIPUseEIDasGID  DOIP_CFG_FALSE
+
 /** ECUC_DoIP_00005; DoIPGeneral; Boolean, multiplicity 1; extracted default false. */
 #define DoIPVersionInfoApi  DOIP_CFG_FALSE
 /**

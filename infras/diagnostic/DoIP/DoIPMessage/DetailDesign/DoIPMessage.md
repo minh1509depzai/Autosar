@@ -7,7 +7,7 @@ Scope: add a generic static DoIP message builder; keep the existing negative-ack
 
 | Item | Finding |
 |---|---|
-| Files | `infras/diagnostic/DoIP/implementation/DoIPMessage/DoIPMessage.hpp` and `DoIPMessage.cpp`. |
+| Files | `infras/diagnostic/DoIP/DoIPMessage/Implementation/ExportHeaderInterface/DoIPMessage.hpp` and `infras/diagnostic/DoIP/DoIPMessage/Implementation/InternalImplement/DoIPMessage.cpp`. |
 | `buildNegativeAcknowledge` | `static std::vector<std::uint8_t> buildNegativeAcknowledge(AcknowledgeCode)`. It hard-codes type `0x0000`, length 1, and returns raw bytes. |
 | Callers | **None.** Referenced only by its declaration and definition. No DoIPMessage tests exist. |
 | Defect fixed by this change | The current static function reads the non-static member `mProtocolVersion`, so it cannot compile. The new code uses the `DoIPProtocolVersion` macro instead. |
@@ -198,16 +198,16 @@ Coding rule 8: at implementation, each requirement ID gets its own `/* @SWS_DoIP
 
 | File | Planned change |
 |---|---|
-| `infras/diagnostic/DoIP/implementation/DoIPMessage/DoIPMessage.hpp` | Declare `BuildMessageErrorCode` before class `DoIPMessage`; define the guarded `DoIPProtocolVersion` macro as `0x02`; declare `buildMessage` and `toBytes`; change `mPayload` to `std::vector<std::uint8_t>`; remove the `Util/RingBuffer.hpp` include. `buildNegativeAcknowledge` declaration stays. |
-| `infras/diagnostic/DoIP/implementation/DoIPMessage/DoIPMessage.cpp` | Implement `buildMessage` and `toBytes`; reimplement `buildNegativeAcknowledge` through them; add `<stdexcept>`. |
+| `infras/diagnostic/DoIP/DoIPMessage/Implementation/ExportHeaderInterface/DoIPMessage.hpp` | Declare `BuildMessageErrorCode` before class `DoIPMessage`; define the guarded `DoIPProtocolVersion` macro as `0x02`; declare `buildMessage` and `toBytes`; change `mPayload` to `std::vector<std::uint8_t>`; remove the `Util/RingBuffer.hpp` include. `buildNegativeAcknowledge` declaration stays. |
+| `infras/diagnostic/DoIP/DoIPMessage/Implementation/InternalImplement/DoIPMessage.cpp` | Implement `buildMessage` and `toBytes`; reimplement `buildNegativeAcknowledge` through them; add `<stdexcept>`. |
 
-Only `DoIPMessage.hpp` and `DoIPMessage.cpp` under `implementation/DoIPMessage/` are planned for change. `Configuration.hpp` is **not** changed.
+Only `DoIPMessage.hpp` and `DoIPMessage.cpp` in the DoIPMessage implementation directories are planned for change. `Configuration.hpp` is **not** changed.
 
 ## 10. Assumptions
 
 | ID | Assumption |
 |---|---|
-| A1 | Files stay in the existing `DoIPMessage/` folder; moving them into the layout directories is not part of this change. |
+| A1 | The module uses responsibility-based subdirectories under `DoIPMessage/`; see `FolderStructure.md`. |
 | A2 | `BuildMessageErrorCode` is a new enum local to `DoIPMessage.hpp`; its numeric values are arbitrary. |
 | A3 | `buildMessage` does not check the payload length against the payload type; `isPayloadLengthValid` stays a reception check. |
 | A4 | An unknown payload type is checked before the payload size (mirrors the order of SWS_DoIP_00016 and 00017/00018). |

@@ -11,7 +11,12 @@ class LibraryDoIPNodeInformation(Library):
         self.CPPPATH = [
             "$INFRAS",
             os.path.join("$INFRAS", "include"),
-            os.path.join(CWD, "implementation", "DoIPMessage"),
+            os.path.join(
+                CWD,
+                "DoIPMessage",
+                "Implementation",
+                "ExportHeaderInterface",
+            ),
             os.path.join(
                 CWD,
                 "implementation",
@@ -63,7 +68,13 @@ class LibraryDoIPNodeInformation(Library):
             ),
         ]
         self.source = [
-            os.path.join(CWD, "implementation", "DoIPMessage", "DoIPMessage.cpp"),
+            os.path.join(
+                CWD,
+                "DoIPMessage",
+                "Implementation",
+                "InternalImplement",
+                "DoIPMessage.cpp",
+            ),
             os.path.join(
                 CWD,
                 "implementation",
