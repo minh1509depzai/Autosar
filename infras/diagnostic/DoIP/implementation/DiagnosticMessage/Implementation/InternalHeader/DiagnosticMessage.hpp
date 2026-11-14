@@ -19,19 +19,20 @@ enum class DiagnosticNackCode : std::uint8_t
 class DiagnosticMessage
 {
 public:
-    bool parse(const std::vector<std::uint8_t>& payload);
+    bool parse( const std::vector<std::uint8_t>& payload );
 
-    std::uint16_t sourceAddress() const;
-    std::uint16_t targetAddress() const;
-    const std::vector<std::uint8_t>& userData() const;
+    std::uint16_t sourceAddress( ) const;
+    
+    std::uint16_t targetAddress( ) const;
 
-    std::vector<std::uint8_t> buildPositiveAcknowledge(
-        std::uint32_t previousMessageBytes) const;
-    std::vector<std::uint8_t> buildNegativeAcknowledge(
-        DiagnosticNackCode nackCode,
-        std::uint32_t previousMessageBytes) const;
-    std::vector<std::uint8_t> buildResponse(
-        const std::vector<std::uint8_t>& userData) const;
+    const std::vector<std::uint8_t>& userData( ) const;
+
+    std::vector<std::uint8_t> buildPositiveAcknowledge( std::uint32_t previousMessageBytes ) const;
+
+    std::vector<std::uint8_t> buildNegativeAcknowledge( DiagnosticNackCode nackCode,
+                                                        std::uint32_t previousMessageBytes ) const;
+
+    std::vector<std::uint8_t> buildResponse( const std::vector<std::uint8_t>& userData ) const;
 
 private:
     std::uint16_t _sourceAddress = 0U;

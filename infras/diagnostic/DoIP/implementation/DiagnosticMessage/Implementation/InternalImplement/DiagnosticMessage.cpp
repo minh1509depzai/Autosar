@@ -48,47 +48,59 @@ const std::vector<std::uint8_t>& DiagnosticMessage::userData() const
     return _userData;
 }
 
-std::vector<std::uint8_t> DiagnosticMessage::buildPositiveAcknowledge(
-    std::uint32_t previousMessageBytes) const
+std::vector<std::uint8_t> DiagnosticMessage::buildPositiveAcknowledge( std::uint32_t previousMessageBytes ) const
 {
     std::vector<std::uint8_t> payload;
+
     payload.reserve(5U);
+
     /* @SWS_DoIP_00132 */
     appendU16BigEndian(payload, _targetAddress);
+
     /* @SWS_DoIP_00133 */
     appendU16BigEndian(payload, _sourceAddress);
+
     /* @SWS_DoIP_00134 */
     payload.push_back(static_cast<std::uint8_t>(previousMessageBytes));
+
     return payload;
 }
 
-std::vector<std::uint8_t> DiagnosticMessage::buildNegativeAcknowledge(
-    DiagnosticNackCode nackCode,
-    std::uint32_t previousMessageBytes) const
+std::vector<std::uint8_t> DiagnosticMessage::buildNegativeAcknowledge( DiagnosticNackCode nackCode,
+                                                                       std::uint32_t previousMessageBytes ) const
 {
     std::vector<std::uint8_t> payload;
+
     payload.reserve(6U);
+
     /* @SWS_DoIP_00135 */
     appendU16BigEndian(payload, _targetAddress);
+
     /* @SWS_DoIP_00136 */
     appendU16BigEndian(payload, _sourceAddress);
+
     /* @SWS_DoIP_00137 */
     payload.push_back(static_cast<std::uint8_t>(nackCode));
+
     /* @SWS_DoIP_00138 */
     payload.push_back(static_cast<std::uint8_t>(previousMessageBytes));
+
     return payload;
 }
 
-std::vector<std::uint8_t> DiagnosticMessage::buildResponse(
-    const std::vector<std::uint8_t>& userData) const
+std::vector<std::uint8_t> DiagnosticMessage::buildResponse( const std::vector<std::uint8_t>& userData ) const
 {
     std::vector<std::uint8_t> payload;
+
     payload.reserve(4U + userData.size());
+
     /* @SWS_DoIP_00131 */
     appendU16BigEndian(payload, _targetAddress);
     appendU16BigEndian(payload, _sourceAddress);
+
     /* @SWS_DoIP_00173 */
     payload.insert(payload.end(), userData.begin(), userData.end());
+
     return payload;
 }
 
