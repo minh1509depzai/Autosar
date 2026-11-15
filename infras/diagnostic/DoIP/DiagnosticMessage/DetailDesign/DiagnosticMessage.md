@@ -125,7 +125,7 @@ classDiagram
 
 | File | Directory | Responsibility |
 |---|---|---|
-| Existing `Configuration.hpp` | `Configuration/` | Provides DoIP configuration values and channel/PDU mapping view; no duplicate settings are introduced. |
+| Existing `Configuration.hpp` | `Configuration/` | Provides DoIP configuration values, including channel and PDU child records; no duplicate settings are introduced. |
 | `DiagnosticMessageExport.hpp` | `DiagnosticMessage/Implementation/ExportHeaderInterface/` | Maps diagnostic receive/connection-close notifications and module-prefixed transmit callback aliases to singleton methods. |
 | `DiagnosticMessageImport.hpp` | `DiagnosticMessage/Implementation/ImportHeaderInterface/` | Declares imported communication, connection/routing-state, and standard PduR providers; maps their names for this module. |
 | `DiagnosticMessage.hpp` | `DiagnosticMessage/Implementation/InternalHeader/` | Declares diagnostic payload parsing and diagnostic message construction. |
@@ -159,7 +159,7 @@ Use the standard PduR API symbols for diagnostic reception. The separate Routing
 | `ConnectionId` | Existing DoIP connection identifier type. | `std::uint64_t` in neighboring feature imports. | Identifies the TCP connection used for reception and response transmission. |
 | `PduIdType`, `PduInfoType`, `PduLengthType`, `BufReq_ReturnType`, `Std_ReturnType` | Existing AUTOSAR/PduR interface types. | Defined by the project's AUTOSAR type headers. | Used by `DoIP_TpTransmit` / `DoIP_IfTransmit` and standard PduR reception APIs; do not create local replacements. |
 | `PayloadType` | Existing DoIP payload-type enum. | Add outgoing `0x8002` and `0x8003` values; keep the inbound supported-type check unchanged. | Selects the diagnostic positive/negative ACK payload types. |
-| `DoIPConfiguration` | Existing generated/configuration view. | `DoIPMaxRequestBytes`, `DoIPChannel`, `DoIPPduRRxPdu`, `DoIPPduRTxPdu`, `DoIPNumByteDiagAckNack`. | Source of configured channel/PDU IDs and per-tester ACK/NACK byte count. |
+| `DoIPConfiguration` | Existing generated configuration aggregate. | `DoIPMaxRequestBytes`, `DoIPChannel`, `DoIPPduRRxPdu`, `DoIPPduRTxPdu`, `DoIPNumByteDiagAckNack`. | Source of configured channel/PDU IDs and per-tester ACK/NACK byte count. |
 
 `DoIPMessage` supplies the generic header parser and existing `build` method. Update `build` so its outgoing payload validation also permits `0x8002` and `0x8003`, while leaving the parser's inbound supported-type check unchanged.
 
@@ -194,7 +194,7 @@ flowchart TD
     M -- No --> O{Target activated for this connection?}
     O -- No --> P[Send NACK 0x06]
     P --> X
-    O -- Yes --> Q[Resolve DoIPChannel and PduR Rx/Tx PDU mapping]
+    O -- Yes --> Q[Resolve DoIPChannel and its PduR Rx/Tx PDU children]
     Q --> R{Pending response already exists for Tx PDU?}
     R -- Yes --> X
     R -- No --> S[Forward only UDS data to DoIPPduRRxPdu]
@@ -206,7 +206,7 @@ flowchart TD
     V --> Z[Send diagnostic positive ACK]
 ```
 
-The UDS data begins after the two-byte source address and two-byte target address in the diagnostic payload. Neither address is forwarded as UDS data. The accepted request's UDS bytes are passed unchanged. The configured PDU mapping must match the validated tester/target channel.
+The UDS data begins after the two-byte source address and two-byte target address in the diagnostic payload. Neither address is forwarded as UDS data. The accepted request's UDS bytes are passed unchanged. The Rx/Tx PDU IDs are taken from the validated tester/target channel.
 
 ### 4.2 `handleDiagnosticRequest(connectionId, payload)`
 
@@ -217,7 +217,7 @@ The UDS data begins after the two-byte source address and two-byte target addres
 1. Require the diagnostic payload length to be at least five bytes (`SWS_DoIP_00122`).
 2. Decode source and target addresses as two-byte network-order fields; the remainder is user/UDS data.
 3. Confirm the source address is registered on this established connection. If not, send diagnostic NACK code `0x02`, then close the connection as required (`SWS_DoIP_00123`).
-4. Confirm the received source/target pair is linked through configured `DoIPRoutingActivationRef` and `DoIPTargetAdressRef` / `DoIPChannel`, and resolve its candidate Rx-PDU mapping. If not, send NACK `0x03` and discard (`SWS_DoIP_00124`).
+4. Confirm the received source/target pair is linked through configured `DoIPRoutingActivationRef` and `DoIPTargetAdressRef` / `DoIPChannel`, and resolve its Rx/Tx PDU children. If not, send NACK `0x03` and discard (`SWS_DoIP_00124`).
 5. If the payload length exceeds `DoIPMaxRequestBytes - 4`, send NACK `0x04` and discard (`SWS_DoIP_00125`).
 6. If that maximum-length check did not fail, obtain the receiving-side buffer size through `PduR_DoIPStartOfReception`. If the reported buffer cannot hold the UDS data, send NACK `0x05` and discard (`SWS_DoIP_00126`).
 7. Confirm the target address was activated by routing activation. If not, send NACK `0x06` and discard (`SWS_DoIP_00127`).
@@ -302,7 +302,7 @@ sequenceDiagram
     participant I as DiagnosticMessageImport providers
     F->>D: onMessageReceived(connectionId, payloadType, payload)
     D->>I: isConfiguredTcpConnection(connectionId)
-    D->>C: resolve tester/target channel and PDU mapping
+    D->>C: resolve tester/target channel and its PDU children
     D->>R: query tester registration on connection
     D->>R: query target activation
     alt validation rejects request
@@ -383,13 +383,13 @@ sequenceDiagram
 | A1 | The shared communication layer validates the generic header, retains all diagnostic payload bytes, and passes the complete payload with `(connectionId, payloadType, payload)` to `onMessageReceived`. |
 | A2 | Source/target addresses are two-byte network-order values; diagnostic UDS data is the payload after these four bytes. |
 | A3 | The extracted requirement's `DoIPMaxRequestBytes - 4` comparison applies to the DoIP payload length including the two addresses, exactly as written. |
-| A4 | `DoIPChannel` plus configured PDU mappings can be resolved to a unique tester/target/Rx-PDU/Tx-PDU association. |
+| A4 | A `DoIPChannel` and its PDU children resolve to a unique tester/target/Rx-PDU/Tx-PDU association. |
 | A5 | The ACK/NACK payload uses the field positions and lengths in AUTOSAR SWS Table 7.13 (`RequirementExtraction/Table_7.13.PNG`); generic DoIP header serialization follows the applicable SWS definitions. |
 | A6 | The configured `DoIPNumByteDiagAckNack` value is selected using the tester source address associated with the received connection/request. |
 | A7 | The receiving-side buffer size is supplied by PduR through `PduR_DoIPStartOfReception`; compare it with the UDS data length when deciding whether to send NACK `0x05`. |
 | A8 | The standard AUTOSAR PduR APIs are used for diagnostic reception, and Routing Activation will provide a separate API for the registration/activation query needed to distinguish NACK codes. |
 | A9 | Since the Tx transmit callback carries no request token or ordering guarantee, allow at most one pending request per Tx PDU. While a context is pending, decline later requests mapped to that Tx PDU without forwarding, a positive ACK, or a diagnostic NACK; consume the context after its response callback or connection-close notification. |
-| A10 | The current configuration view does not associate multiple PDU mappings with individual channels. This implementation accepts diagnostic routing only when exactly one `DoIPPduConfig` mapping is configured; the integration must provide an explicit mapping relation before configuring multiple PDU mappings. |
+| A10 | Rx/Tx PDU IDs are read from the first channel matching the tester/target pair. A matched channel without its `DoIPPduRRxPdu` or `DoIPPduRTxPdu` child discards the request, because no PduR route exists. Several channels, each with its own PDU children, are supported. |
 
 ### Unresolved requirements / integration decisions
 

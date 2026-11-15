@@ -13,52 +13,61 @@ namespace {
 
 const std::uint16_t kDiagnosticMessagePayloadType = 0x8001U;
 
-const configuration::DoIPPduConfig* findPduMapping(
-    const configuration::DoIPConfigurationView& containers)
+const configuration::DoIPChannelConfig* findConfiguredChannel(
+    const configuration::DoIPConfigSet& configSet,
+    std::uint16_t sourceAddress,
+    std::uint16_t targetAddress )
 {
-    if (containers.pduMappings == nullptr || containers.pduMappingCount != 1U)
+    if (configSet.interfaces == nullptr)
     {
         return nullptr;
     }
-    return &containers.pduMappings[0];
-}
 
-bool isConfiguredChannel( const configuration::DoIPConfigurationView& containers,
-                          std::uint16_t sourceAddress,
-                          std::uint16_t targetAddress )
-{
-    if (containers.channels == nullptr)
+    for (std::size_t interfaceIndex = 0U; interfaceIndex < configSet.interfaceCount; ++interfaceIndex)
     {
-        return false;
-    }
-
-    for (std::size_t index = 0U; index < containers.channelCount; ++index)
-    {
-        const configuration::DoIPChannelConfig& channel = containers.channels[index];
-        if (channel.sourceTester != nullptr && channel.target != nullptr &&
-            channel.sourceTester->sourceAddress == sourceAddress &&
-            channel.target->value == targetAddress)
+        const configuration::DoIPInterfaceConfig& interfaceConfig = configSet.interfaces[interfaceIndex];
+        if (interfaceConfig.channels == nullptr)
         {
-            return true;
+            continue;
+        }
+
+        for (std::size_t index = 0U; index < interfaceConfig.channelCount; ++index)
+        {
+            const configuration::DoIPChannelConfig& channel = interfaceConfig.channels[index];
+            if (channel.sourceTester != nullptr && channel.target != nullptr &&
+                channel.sourceTester->sourceAddress == sourceAddress &&
+                channel.target->value == targetAddress)
+            {
+                return &channel;
+            }
         }
     }
-    return false;
+    return nullptr;
 }
 
 std::uint32_t getAckNackBytes(
-    const configuration::DoIPConfigurationView& containers,
+    const configuration::DoIPConfigSet& configSet,
     std::uint16_t sourceAddress)
 {
-    if (containers.testers == nullptr)
+    if (configSet.interfaces == nullptr)
     {
         return 0U;
     }
 
-    for (std::size_t index = 0U; index < containers.testerCount; ++index)
+    for (std::size_t interfaceIndex = 0U; interfaceIndex < configSet.interfaceCount; ++interfaceIndex)
     {
-        if (containers.testers[index].sourceAddress == sourceAddress)
+        const configuration::DoIPInterfaceConfig& interfaceConfig = configSet.interfaces[interfaceIndex];
+        if (interfaceConfig.testers == nullptr)
         {
-            return containers.testers[index].diagnosticAckNackBytes;
+            continue;
+        }
+
+        for (std::size_t index = 0U; index < interfaceConfig.testerCount; ++index)
+        {
+            if (interfaceConfig.testers[index].sourceAddress == sourceAddress)
+            {
+                return interfaceConfig.testers[index].diagnosticAckNackBytes;
+            }
         }
     }
     return 0U;
@@ -114,10 +123,10 @@ void DiagnosticMessageManager::handleDiagnosticRequest( ConnectionId connectionI
         return;
     }
 
-    const configuration::DoIPConfigurationView& containers = configuration::DOIP_DEFAULT_CONFIGURATION.containers;
+    const configuration::DoIPConfigSet& configSet = configuration::DOIP_DEFAULT_CONFIGURATION.configSet;
     const std::uint16_t sourceAddress = requestMessage.sourceAddress();
     const std::uint16_t targetAddress = requestMessage.targetAddress();
-    const std::uint32_t ackNackBytes = getAckNackBytes(containers, sourceAddress);
+    const std::uint32_t ackNackBytes = getAckNackBytes(configSet, sourceAddress);
 
     /* @SWS_DoIP_00123 */
     if (!DiagnosticMessage_isTesterRegistered(connectionId, sourceAddress))
@@ -132,7 +141,8 @@ void DiagnosticMessageManager::handleDiagnosticRequest( ConnectionId connectionI
     }
 
     /* @SWS_DoIP_00124 */
-    if (!isConfiguredChannel(containers, sourceAddress, targetAddress))
+    const configuration::DoIPChannelConfig* channel = findConfiguredChannel(configSet, sourceAddress, targetAddress);
+    if (channel == nullptr)
     {
         sendNegativeAcknowledge( requestMessage, 
                                  connectionId, 
@@ -155,16 +165,17 @@ void DiagnosticMessageManager::handleDiagnosticRequest( ConnectionId connectionI
         return;
     }
 
-    const configuration::DoIPPduConfig* pduMapping = findPduMapping(containers);
+    const configuration::DoIPPduRRxPduConfig* rxPdu = channel->pduRRxPdu;
+    const configuration::DoIPPduRTxPduConfig* txPdu = channel->pduRTxPdu;
     
-    if ( ( pduMapping == nullptr ) || 
+    if ( ( rxPdu == nullptr ) || ( txPdu == nullptr ) ||
          ( requestMessage.userData().size() > static_cast<std::size_t>(std::numeric_limits<PduLengthType>::max()) ))
     {
         return;
     }
 
-    const PduIdType rxPduId = static_cast<PduIdType>(pduMapping->pduRRxPduId);
-    const PduIdType txPduId = static_cast<PduIdType>(pduMapping->pduRTxPduId);
+    const PduIdType rxPduId = static_cast<PduIdType>(rxPdu->pduId);
+    const PduIdType txPduId = static_cast<PduIdType>(txPdu->pduId);
     if (_pendingResponsesByTxPdu.find(txPduId) != _pendingResponsesByTxPdu.end())
     {
         return;

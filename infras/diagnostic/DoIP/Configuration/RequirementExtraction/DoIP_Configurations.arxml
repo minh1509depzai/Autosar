@@ -385,6 +385,25 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPInterface</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00100</P>
+          <P>ParentContainer: DoIPConfigSet</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1..255</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: This container defines a logical IP interface and collects properties to configure this interface.</P>
+          <P>Relationship: Contains DoIPInterface configuration parameters and the subcontainers DoIPChannel, DoIPConnections, DoIPFurtherActionByteCallback, DoIPRoutingActivation, and DoIPTester.</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.9 DoIPInterface; PDF pages 99–105 (printed pages 99–105)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPAliveCheckResponseTimeout</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -613,6 +632,26 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPChannel</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00069</P>
+          <P>ContainerName: DoIPChannel</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: Container</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1 .. 65535</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Configuration of one DoIPChannel.</P>
+          <P>Relationship: DoIPChannel belongs to DoIPInterface. It contains configuration parameters DoIPChannelSARef and DoIPChannelTARef. It may contain DoIPPduRRxPdu and DoIPPduRTxPdu.</P>
+          <P>EvidenceClassification: Explicit</P>
+	        <P>SourceReference: Section 10.2.10, PDF page 106, printed page 106.</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPChannelSARef</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -651,6 +690,23 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPPduRRxPdu</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00055</P>
+          <P>ParentContainer: DoIPChannel</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>Description: This container contains the Rx Pdus to connect with the Rx Pdus of the PduR.</P>
+          <P>Multiplicity: 0 .. 1</P>
+          <P>PostBuildVariant: Not specified in this container definition</P>
+          <P>Relationship: Contains DoIPPduRRxPduId and DoIPPduRRxPduRef.</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: Section 10.2.11, PDF page 107, printed page 107.</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPPduRRxPduId</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -685,6 +741,22 @@
           <P>Relationship: Not specified in source</P>
           <P>EvidenceClassification: Explicit</P>
           <P>SourceReference: 10.2.11 DoIPPduRRxPdu; PDF page 108 (printed page 108)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPPduRTxPdu</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00056</P>
+          <P>ParentContainer: DoIPChannel</P>
+          <P>Description: This container contains the Tx Pdus to connect with the Tx Pdus of the PduR. If the parameter is not configured the channel is for functional addressing.</P>
+          <P>Multiplicity: 0 .. 1</P>
+          <P>PostBuildVariant: Not specified in this container definition</P>
+          <P>Relationship: Contains DoIPPduRTxPduId, DoIPPduType and DoIPPduRTxPduRef.</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: Section 10.2.12, PDF page 108, printed page 108.</P>
         </ANNOTATION-TEXT>
       </ANNOTATION>
       <ANNOTATION>
@@ -745,25 +817,6 @@
         </ANNOTATION-TEXT>
       </ANNOTATION>
       <ANNOTATION>
-      <LABELS>
-        <L-4>DoIPTargetAddressValue</L-4>
-      </LABELS>
-      <ANNOTATION-TEXT>
-        <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
-        <P>ECUCItemID: ECUC_DoIP_00054</P>
-        <P>ParentContainer: DoIPTargetAddress</P>
-        <P>Type: EcucIntegerParamDef</P>
-        <P>Range: 0 .. 65535</P>
-        <P>Multiplicity: 1</P>
-        <P>DefaultValue: Not specified in source</P>
-        <P>PostBuildVariant: true</P>
-        <P>ValueConfigurationClass: VARIANT-PRE-COMPILE, VARIANT-LINK-TIME, VARIANT-POST-BUILD</P>
-        <P>Scope: local</P>
-        <P>Description: Valid Target Address of a DoIP target address.</P>
-        <P>SourceReference: Section 10.2.14, PDF page 112</P>
-      </ANNOTATION-TEXT>
-    </ANNOTATION>
-      <ANNOTATION>
         <LABELS>
           <L-4>DoIPTargetAddressValue</L-4>
         </LABELS>
@@ -772,14 +825,32 @@
           <P>ECUCItemID: ECUC_DoIP_00054</P>
           <P>ParentContainer: DoIPTargetAddress</P>
           <P>Type: EcucIntegerParamDef</P>
-          <P>RangeOrReferenceTarget: 0 .. 65535</P>
+          <P>Range: 0 .. 65535</P>
           <P>Multiplicity: 1</P>
-          <P>DefaultValue: Post-Build Variant true</P>
+          <P>DefaultValue: Not specified in source</P>
           <P>PostBuildVariant: true</P>
+          <P>ValueConfigurationClass: VARIANT-PRE-COMPILE, VARIANT-LINK-TIME, VARIANT-POST-BUILD</P>
+          <P>Scope: local</P>
           <P>Description: Valid Target Address of a DoIP target address.</P>
-          <P>Relationship: Not specified in source</P>
-          <P>EvidenceClassification: Explicit</P>
-          <P>SourceReference: 10.2.14 DoIPTargetAddress; PDF page 111 (printed page 111)</P>
+          <P>SourceReference: Section 10.2.14, PDF page 112</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTcpConnection</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00045</P>
+          <P>ParentContainer: DoIPConnections</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 2..255</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: This container describes a TCP connection to the lower layer SoAd module.</P>
+          <P>Relationship: Contains DoIPRequestAddressAssignment, DoIPTcpConnectionSecurityRequired, DoIPSoAdTcpRxPdu, and DoIPSoAdTcpTxPdu.</P>
+          <P>SourceReference: 10.2.15 DoIPTcpConnection; PDF pages 112–113 (printed pages 112–113)</P>
         </ANNOTATION-TEXT>
       </ANNOTATION>
       <ANNOTATION>
@@ -822,6 +893,24 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPSoAdTcpRxPdu</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00080</P>
+          <P>ParentContainer: DoIPTcpConnection</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: This container describes a Rx PDU received via SoAd over TCP.</P>
+          <P>Relationship: Contains DoIPSoAdTcpRxPduId and DoIPSoAdTcpRxPduRef.</P>
+          <P>SourceReference: 10.2.16 DoIPSoAdTcpRxPdu; PDF page 113 (printed page 113)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPSoAdTcpRxPduId</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -856,6 +945,24 @@
           <P>Relationship: Not specified in source</P>
           <P>EvidenceClassification: Explicit</P>
           <P>SourceReference: 10.2.16 DoIPSoAdTcpRxPdu; PDF page 113 (printed page 113)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdTcpTxPdu</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00081</P>
+          <P>ParentContainer: DoIPTcpConnection</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: This container describes a Tx PDU sent via SoAd over TCP.</P>
+          <P>Relationship: Contains DoIPSoAdTcpTxPduId and DoIPSoAdTcpTxPduRef.</P>
+          <P>SourceReference: 10.2.17 DoIPSoAdTcpTxPdu; PDF page 114 (printed page 114)</P>
         </ANNOTATION-TEXT>
       </ANNOTATION>
       <ANNOTATION>
@@ -898,6 +1005,24 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPUdpConnection</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00052</P>
+          <P>ParentContainer: DoIPConnections</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1..255</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: This Container describes a Udp connection to the lower layer SoAd module.</P>
+          <P>Relationship: Contains DoIPRequestAddressAssignment, DoIPSoAdUdpRxPdu, and DoIPSoAdUdpTxPdu.</P>
+          <P>SourceReference: 10.2.18 DoIPUdpConnection; PDF page 115 (printed page 115)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPRequestAddressAssignment</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -913,6 +1038,24 @@
           <P>Relationship: Not specified in source</P>
           <P>EvidenceClassification: Explicit</P>
           <P>SourceReference: 10.2.18 DoIPUdpConnection; PDF page 115 (printed page 115)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdUdpRxPdu</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00046</P>
+          <P>ParentContainer: DoIPUdpConnection</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: This container describes a Rx PDU received via SoAd over UDP.</P>
+          <P>Relationship: Contains DoIPSoAdUdpRxPduId and DoIPSoAdUdpRxPduRef.</P>
+          <P>SourceReference: 10.2.19 DoIPSoAdUdpRxPdu; PDF page 116 (printed page 116)</P>
         </ANNOTATION-TEXT>
       </ANNOTATION>
       <ANNOTATION>
@@ -955,6 +1098,24 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPSoAdUdpTxPdu</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00047</P>
+          <P>ParentContainer: DoIPUdpConnection</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: This container describes a Tx PDU sent via SoAd over UDP.</P>
+          <P>Relationship: Contains DoIPSoAdUdpTxPduId and DoIPSoAdUdpTxPduRef.</P>
+          <P>SourceReference: 10.2.20 DoIPSoAdUdpTxPdu; PDF pages 116–117 (printed pages 116–117)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPSoAdUdpTxPduId</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -993,6 +1154,24 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPUdpVehicleAnnouncementConnection</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00076</P>
+          <P>ParentContainer: DoIPConnections</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..255</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: This container describes the UDP multicast connections to the lower layer SoAd module.</P>
+          <P>Relationship: Contains DoIPRequestAddressAssignment and DoIPSoAdUdpVehicleAnnouncementTxPdu.</P>
+          <P>SourceReference: 10.2.21 DoIPUdpVehicleAnnouncementConnection; PDF pages 117–118 (printed pages 117–118)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPRequestAddressAssignment</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -1008,6 +1187,24 @@
           <P>Relationship: Not specified in source</P>
           <P>EvidenceClassification: Explicit</P>
           <P>SourceReference: 10.2.21 DoIPUdpVehicleAnnouncementConnection; PDF page 117 (printed page 117)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPSoAdUdpVehicleAnnouncementTxPdu</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00077</P>
+          <P>ParentContainer: DoIPUdpVehicleAnnouncementConnection</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: This container describes the vehicle announcement TxPdu sent via the SoAd.</P>
+          <P>Relationship: Contains DoIPSoAdUdpVehicleAnnouncementTxPduId and DoIPSoAdUdpVehicleAnnouncementTxPduRef.</P>
+          <P>SourceReference: 10.2.22 DoIPSoAdUdpVehicleAnnouncementTxPdu; PDF pages 118–119 (printed pages 118–119)</P>
         </ANNOTATION-TEXT>
       </ANNOTATION>
       <ANNOTATION>
@@ -1050,6 +1247,25 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPRoutingActivation</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00030</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..255</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: This container describes the routing activation possibilities by representing for each container a possible routing activation request message to the DoIP entity and the according references to the activated diagnostic messages.</P>
+          <P>Relationship: Contains DoIPRoutingActivationNumber, DoIPTargetAddressRef, and DoIPRoutingActivationSecurityRequired. Includes DoIPRoutingActivationAuthenticationCallback and DoIPRoutingActivationConfirmationCallback.</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.23 DoIPRoutingActivation; PDF page 119 (printed page 119)</P>
+        </ANNOTATION-TEXT>
+    </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPRoutingActivationNumber</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -1088,6 +1304,24 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPConnections</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00032</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: Not specified in source</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0 ... 1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: Container contains all lower layer connection specific information, i.e. the single Pdu References and Handle IDs to the SoAd.</P>
+          <P>Relationship: Contains DoIPTargetAddress, DoIPTcpConnection, DoIPUdpConnection, and DoIPUdpVehicleAnnouncementConnection.</P>
+          <P>SourceReference: 10.2.13 DoIPConnections; PDF page 110 (printed page 110)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPTargetAddressRef</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -1103,6 +1337,25 @@
           <P>Relationship: Not specified in source</P>
           <P>EvidenceClassification: Explicit</P>
           <P>SourceReference: 10.2.23 DoIPRoutingActivation; PDF page 120 (printed page 120)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPRoutingActivationAuthenticationCallback</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00035</P>
+          <P>ParentContainer: DoIPRoutingActivation</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: Container describes the Callbackfunction to call on a Routing Activation Request for Authentication. If this container is configured but the DoIPRoutingActivationAuthenticationFunc parameter is not present, the DoIP module will use an RPort of ServiceInterface &lt;RoutingActivation&gt;_RoutingActivation with the name "CB&lt;RoutingActivation&gt;RoutingActivation". &lt;RoutingActivation&gt; is the ShortName of the DoIPRoutingActiviation container.</P>
+          <P>Relationship: Contains DoIPRoutingActivationAuthenticationFunc, DoIPRoutingActivationAuthenticationReqLength, and DoIPRoutingActivationAuthenticationResLength.</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.24 DoIPRoutingActivationAuthenticationCallback; PDF page 121 (printed page 121)</P>
         </ANNOTATION-TEXT>
       </ANNOTATION>
       <ANNOTATION>
@@ -1164,6 +1417,25 @@
       </ANNOTATION>
       <ANNOTATION>
         <LABELS>
+          <L-4>DoIPRoutingActivationConfirmationCallback</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00061</P>
+          <P>ParentContainer: DoIPRoutingActivation</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 0..1</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: Not specified in source</P>
+          <P>Description: Container describes the Callbackfunction to call on a Routing Activation Request for Confirmation. If this container is configured but the DoIPRoutingActivationConfirmationFunc parameter is not present the DoIP module will use an RPort of ServiceInterface &lt;RoutingActivation&gt;_RoutingActivation with the name "CB&lt;RoutingActivation&gt;RoutingActivation". &lt;RoutingActivation&gt; is the ShortName of the DoIPRoutingActiviation container.</P>
+          <P>Relationship: Contains DoIPRoutingActivationConfirmationFunc, DoIPRoutingActivationConfirmationReqLength, and DoIPRoutingActivationConfirmationResLength.</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.25 DoIPRoutingActivationConfirmationCallback; PDF page 123 (printed page 123)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
           <L-4>DoIPRoutingActivationConfirmationFunc</L-4>
         </LABELS>
         <ANNOTATION-TEXT>
@@ -1217,6 +1489,25 @@
           <P>Relationship: Not specified in source</P>
           <P>EvidenceClassification: Explicit</P>
           <P>SourceReference: 10.2.25 DoIPRoutingActivationConfirmationCallback; PDF page 124 (printed page 124)</P>
+        </ANNOTATION-TEXT>
+      </ANNOTATION>
+      <ANNOTATION>
+        <LABELS>
+          <L-4>DoIPTester</L-4>
+        </LABELS>
+        <ANNOTATION-TEXT>
+          <P>Source: AUTOSAR_SWS_DiagnosticOverIP.pdf</P>
+          <P>ECUCItemID: ECUC_DoIP_00031</P>
+          <P>ParentContainer: DoIPInterface</P>
+          <P>Type: EcucParamConfContainerDef</P>
+          <P>RangeOrReferenceTarget: Not specified in source</P>
+          <P>Multiplicity: 1..255</P>
+          <P>DefaultValue: Not specified in source</P>
+          <P>PostBuildVariant: false</P>
+          <P>Description: This container describes the properties of the possible connectable Tester for the DoIP entity.</P>
+          <P>Relationship: Contains DoIPNumByteDiagAckNack and DoIPTesterSA parameters. Defines DoIPRoutingActivationRef to reference DoIPRoutingActivation containers.</P>
+          <P>EvidenceClassification: Explicit</P>
+          <P>SourceReference: 10.2.26 DoIPTester; PDF page 125 (printed page 125)</P>
         </ANNOTATION-TEXT>
       </ANNOTATION>
       <ANNOTATION>

@@ -3,7 +3,7 @@
  * @brief   Pre-compile configuration of the DoIP module.
  *
  * Configuration examples for the parameter definitions extracted in
- * implementation/Configuration/RequirementExtraction/DoIP_Configurations.arxml.
+ * infras/diagnostic/DoIP/Configuration/RequirementExtraction/DoIP_Configurations.arxml.
  * Parameter identity is the combination of parent container and parameter
  * short name; ECUC item IDs alone are not unique in the extraction.
  *
@@ -141,6 +141,11 @@
 /* =========================================================================
  * DoIPTester
  * ========================================================================= */
+
+/*
+ * ECUC_DoIP_00031; DoIPInterface child container; multiplicity 1 .. 255.
+ * The configuration tool enforces this multiplicity.
+ */
 
 /**
  * DoIPTesterSA
@@ -511,6 +516,7 @@
  * PROJECT EXAMPLE: 0; use the integration's generated PduR handle in production.
  */
 #define DoIPPduRTxPduId  0U
+
 /** ECUC_DoIP_00075; DoIPPduRTxPdu; extracted default DOIP_TPPDU. */
 #define DoIPPduType  DOIP_TPPDU
 /*
@@ -548,6 +554,12 @@
  * PROJECT EXAMPLE: 0; replace with the integration's generated SoAd handle.
  */
 #define DoIPSoAdTcpTxPduId  0U
+/**
+ * Second TCP connection instance (ECUC_DoIP_00082 and ECUC_DoIP_00085 under
+ * ECUC_DoIP_00045, multiplicity 2 .. 255). PROJECT EXAMPLE: 1.
+ */
+#define DoIPSecondSoAdTcpRxPduId  1U
+#define DoIPSecondSoAdTcpTxPduId  1U
 /*
  * Unresolved references:
  * ECUC_DoIP_00083 DoIPSoAdTcpRxPdu.DoIPSoAdTcpRxPduRef -> Pdu.
@@ -649,6 +661,8 @@ struct DoIPGeneralConfig
     DoIPNodeTypeValue nodeType;
 };
 
+struct DoIPInterfaceConfig;
+
 struct DoIPConfigSet
 {
     std::uint64_t eid;
@@ -656,7 +670,16 @@ struct DoIPConfigSet
     std::uint16_t logicalAddress;
     bool eidConfigured;
     bool gidConfigured;
+    /* @ECUC_DoIP_00100 */
+    const DoIPInterfaceConfig* interfaces;
+    /* @ECUC_DoIP_00100 */
+    std::size_t interfaceCount;
 };
+
+struct DoIPTesterConfig;
+struct DoIPRoutingActivationConfig;
+struct DoIPChannelConfig;
+struct DoIPConnectionsConfig;
 
 struct DoIPInterfaceConfig
 {
@@ -674,6 +697,19 @@ struct DoIPInterfaceConfig
     bool useMacAddressForIdentification;
     bool useVehicleIdentificationSyncStatus;
     DoIPAnnouncementStart announcementStart;
+    /* @ECUC_DoIP_00031 */
+    const DoIPTesterConfig* testers;
+    std::size_t testerCount;
+    /* @ECUC_DoIP_00030 */
+    const DoIPRoutingActivationConfig* routingActivations;
+    /* @ECUC_DoIP_00030 */
+    std::size_t routingActivationCount;
+    /* @ECUC_DoIP_00069 */
+    const DoIPChannelConfig* channels;
+    /* @ECUC_DoIP_00069 */
+    std::size_t channelCount;
+    /* @ECUC_DoIP_00032 */
+    const DoIPConnectionsConfig* connections;
 };
 
 struct DoIPSoAdTcpRxPduConfig
@@ -711,22 +747,60 @@ struct DoIPUdpConnectionConfig
     DoIPSoAdUdpTxPduConfig soAdUdpTxPdu;
 };
 
+struct DoIPSoAdUdpVehicleAnnouncementTxPduConfig
+{
+    /* @ECUC_DoIP_00078 */
+    std::uint32_t pduId;
+};
+
 struct DoIPUdpVehicleAnnouncementConnectionConfig
 {
     bool requestAddressAssignment;
+    /* @ECUC_DoIP_00077 */
+    DoIPSoAdUdpVehicleAnnouncementTxPduConfig soAdUdpVehicleAnnouncementTxPdu;
 };
 
-struct DoIPPduConfig
+/* @ECUC_DoIP_00058 */
+/* @ECUC_DoIP_00059 */
+struct PduConfig
 {
-    std::uint16_t pduRRxPduId;
-    std::uint16_t pduRTxPduId;
-    std::uint32_t announcementTxPduId;
-    DoIPPduTypeValue txPduType;
+};
+
+/* @ECUC_DoIP_00055 */
+struct DoIPPduRRxPduConfig
+{
+    std::uint16_t pduId;
+    const PduConfig* pduRef;
+};
+
+struct DoIPPduRTxPduConfig
+{
+    std::uint16_t pduId;
+    DoIPPduTypeValue pduType;
+    bool pduTypeConfigured;
+    const PduConfig* pduRef;
 };
 
 struct DoIPTargetAddressConfig
 {
     std::uint16_t value;
+};
+
+/* @ECUC_DoIP_00032 */
+struct DoIPConnectionsConfig
+{
+    /* @ECUC_DoIP_00045 */
+    const DoIPTcpConnectionConfig* tcpConnections;
+    std::size_t tcpConnectionCount;
+    /* @ECUC_DoIP_00052 */
+    const DoIPUdpConnectionConfig* udpConnections;
+    std::size_t udpConnectionCount;
+    /* @ECUC_DoIP_00076 */
+    const DoIPUdpVehicleAnnouncementConnectionConfig* announcementConnections;
+    std::size_t announcementConnectionCount;
+    /* @ECUC_DoIP_00054 */
+    const DoIPTargetAddressConfig* targets;
+    std::size_t targetCount;
 };
 
 struct DoIPCallbackDataConfig
@@ -748,11 +822,16 @@ struct DoIPRoutingActivationConfig
     DoIPCallbackDataConfig callbackData;
 };
 
+/* @ECUC_DoIP_00031 */
 struct DoIPTesterConfig
 {
+    /* @ECUC_DoIP_00043 */
     std::uint16_t sourceAddress;
+    /* @ECUC_DoIP_00042 */
     std::uint32_t diagnosticAckNackBytes;
+    /* @ECUC_DoIP_00062 */
     const DoIPRoutingActivationConfig* activations;
+    /* @ECUC_DoIP_00062 */
     std::size_t activationCount;
 };
 
@@ -760,58 +839,18 @@ struct DoIPChannelConfig
 {
     const DoIPTesterConfig* sourceTester;
     const DoIPTargetAddressConfig* target;
-};
-
-struct DoIPConfigurationView
-{
-    const DoIPInterfaceConfig* interfaces;
-    std::size_t interfaceCount;
-    const DoIPTcpConnectionConfig* tcpConnections;
-    std::size_t tcpConnectionCount;
-    const DoIPUdpConnectionConfig* udpConnections;
-    std::size_t udpConnectionCount;
-    const DoIPUdpVehicleAnnouncementConnectionConfig* announcementConnections;
-    std::size_t announcementConnectionCount;
-    const DoIPPduConfig* pduMappings;
-    std::size_t pduMappingCount;
-    const DoIPTargetAddressConfig* targets;
-    std::size_t targetCount;
-    const DoIPRoutingActivationConfig* routingActivations;
-    std::size_t routingActivationCount;
-    const DoIPTesterConfig* testers;
-    std::size_t testerCount;
-    const DoIPChannelConfig* channels;
-    std::size_t channelCount;
+    const DoIPPduRRxPduConfig* pduRRxPdu;
+    const DoIPPduRTxPduConfig* pduRTxPdu;
 };
 
 struct DoIPConfiguration
 {
     DoIPGeneralConfig general;
     DoIPConfigSet configSet;
-    DoIPConfigurationView containers;
 };
 
 static const DoIPTargetAddressConfig DOIP_DEFAULT_TARGETS[] = {
     {DoIPTargetAddressValue}
-};
-
-static const DoIPInterfaceConfig DOIP_DEFAULT_INTERFACES[] = {
-    {
-        DoIPInterfaceId,
-        static_cast<float>(DoIPAliveCheckResponseTimeout),
-        DoIPGeneralInactivityTime,
-        DoIPInitialInactivityTime,
-        DoIPInitialVehicleAnnouncementTime,
-        DoIPVehicleAnnouncementInterval,
-        DoIPMaxTesterConnections,
-        DoIPVehicleAnnouncementCount,
-        true,
-        true,
-        DoIPInterfaceActLineCtrl != DOIP_CFG_FALSE,
-        DoIPUseMacAddressForIdentification != DOIP_CFG_FALSE,
-        DoIPUseVehicleIdentificationSyncStatus != DOIP_CFG_FALSE,
-        DoIPAnnouncementStart::Automatic
-    }
 };
 
 static const DoIPTcpConnectionConfig DOIP_DEFAULT_TCP_CONNECTIONS[] = {
@@ -820,6 +859,12 @@ static const DoIPTcpConnectionConfig DOIP_DEFAULT_TCP_CONNECTIONS[] = {
         DoIPTcpConnectionSecurityRequired != DOIP_CFG_FALSE,
         {DoIPSoAdTcpRxPduId},
         {DoIPSoAdTcpTxPduId}
+    },
+    {
+        DoIPTcpConnectionRequestAddressAssignment != DOIP_CFG_FALSE,
+        DoIPTcpConnectionSecurityRequired != DOIP_CFG_FALSE,
+        {DoIPSecondSoAdTcpRxPduId},
+        {DoIPSecondSoAdTcpTxPduId}
     }
 };
 
@@ -833,16 +878,21 @@ static const DoIPUdpConnectionConfig DOIP_DEFAULT_UDP_CONNECTIONS[] = {
 
 static const DoIPUdpVehicleAnnouncementConnectionConfig
     DOIP_DEFAULT_ANNOUNCEMENT_CONNECTIONS[] = {
-        {DoIPUdpVehicleAnnouncementConnectionRequestAddressAssignment != DOIP_CFG_FALSE}
+        {
+            DoIPUdpVehicleAnnouncementConnectionRequestAddressAssignment != DOIP_CFG_FALSE,
+            {DoIPSoAdUdpVehicleAnnouncementTxPduId}
+        }
     };
 
-static const DoIPPduConfig DOIP_DEFAULT_PDU_MAPPINGS[] = {
-    {
-        DoIPPduRRxPduId,
-        DoIPPduRTxPduId,
-        DoIPSoAdUdpVehicleAnnouncementTxPduId,
-        DoIPPduTypeValue::TransportProtocolPdu
-    }
+static const DoIPConnectionsConfig DOIP_DEFAULT_CONNECTIONS = {
+    DOIP_DEFAULT_TCP_CONNECTIONS,
+    sizeof(DOIP_DEFAULT_TCP_CONNECTIONS) / sizeof(DOIP_DEFAULT_TCP_CONNECTIONS[0]),
+    DOIP_DEFAULT_UDP_CONNECTIONS,
+    sizeof(DOIP_DEFAULT_UDP_CONNECTIONS) / sizeof(DOIP_DEFAULT_UDP_CONNECTIONS[0]),
+    DOIP_DEFAULT_ANNOUNCEMENT_CONNECTIONS,
+    sizeof(DOIP_DEFAULT_ANNOUNCEMENT_CONNECTIONS) / sizeof(DOIP_DEFAULT_ANNOUNCEMENT_CONNECTIONS[0]),
+    DOIP_DEFAULT_TARGETS,
+    sizeof(DOIP_DEFAULT_TARGETS) / sizeof(DOIP_DEFAULT_TARGETS[0])
 };
 
 static const DoIPRoutingActivationConfig DOIP_DEFAULT_ROUTING_ACTIVATIONS[] = {
@@ -871,10 +921,53 @@ static const DoIPTesterConfig DOIP_DEFAULT_TESTERS[] = {
     }
 };
 
+static const PduConfig DOIP_DUMMY_RX_PDU = {};
+static const PduConfig DOIP_DUMMY_TX_PDU = {};
+
+static const DoIPPduRRxPduConfig DOIP_DEFAULT_PDU_R_RX = {
+    DoIPPduRRxPduId,
+    &DOIP_DUMMY_RX_PDU
+};
+
+static const DoIPPduRTxPduConfig DOIP_DEFAULT_PDU_R_TX = {
+    DoIPPduRTxPduId,
+    DoIPPduTypeValue::TransportProtocolPdu,
+    true,
+    &DOIP_DUMMY_TX_PDU
+};
+
 static const DoIPChannelConfig DOIP_DEFAULT_CHANNELS[] = {
     {
         DOIP_DEFAULT_TESTERS,
-        DOIP_DEFAULT_TARGETS
+        DOIP_DEFAULT_TARGETS,
+        &DOIP_DEFAULT_PDU_R_RX,
+        &DOIP_DEFAULT_PDU_R_TX
+    }
+};
+
+static const DoIPInterfaceConfig DOIP_DEFAULT_INTERFACES[] = {
+    {
+        DoIPInterfaceId,
+        static_cast<float>(DoIPAliveCheckResponseTimeout),
+        DoIPGeneralInactivityTime,
+        DoIPInitialInactivityTime,
+        DoIPInitialVehicleAnnouncementTime,
+        DoIPVehicleAnnouncementInterval,
+        DoIPMaxTesterConnections,
+        DoIPVehicleAnnouncementCount,
+        true,
+        true,
+        DoIPInterfaceActLineCtrl != DOIP_CFG_FALSE,
+        DoIPUseMacAddressForIdentification != DOIP_CFG_FALSE,
+        DoIPUseVehicleIdentificationSyncStatus != DOIP_CFG_FALSE,
+        DoIPAnnouncementStart::Automatic,
+        DOIP_DEFAULT_TESTERS,
+        sizeof(DOIP_DEFAULT_TESTERS) / sizeof(DOIP_DEFAULT_TESTERS[0]),
+        DOIP_DEFAULT_ROUTING_ACTIVATIONS,
+        sizeof(DOIP_DEFAULT_ROUTING_ACTIVATIONS) / sizeof(DOIP_DEFAULT_ROUTING_ACTIVATIONS[0]),
+        DOIP_DEFAULT_CHANNELS,
+        sizeof(DOIP_DEFAULT_CHANNELS) / sizeof(DOIP_DEFAULT_CHANNELS[0]),
+        &DOIP_DEFAULT_CONNECTIONS
     }
 };
 
@@ -899,27 +992,9 @@ static const DoIPConfiguration DOIP_DEFAULT_CONFIGURATION = {
         DoIPGid,
         DoIPLogicalAddress,
         true,
-        true
-    },
-    {
+        true,
         DOIP_DEFAULT_INTERFACES,
-        sizeof(DOIP_DEFAULT_INTERFACES) / sizeof(DOIP_DEFAULT_INTERFACES[0]),
-        DOIP_DEFAULT_TCP_CONNECTIONS,
-        sizeof(DOIP_DEFAULT_TCP_CONNECTIONS) / sizeof(DOIP_DEFAULT_TCP_CONNECTIONS[0]),
-        DOIP_DEFAULT_UDP_CONNECTIONS,
-        sizeof(DOIP_DEFAULT_UDP_CONNECTIONS) / sizeof(DOIP_DEFAULT_UDP_CONNECTIONS[0]),
-        DOIP_DEFAULT_ANNOUNCEMENT_CONNECTIONS,
-        sizeof(DOIP_DEFAULT_ANNOUNCEMENT_CONNECTIONS) / sizeof(DOIP_DEFAULT_ANNOUNCEMENT_CONNECTIONS[0]),
-        DOIP_DEFAULT_PDU_MAPPINGS,
-        sizeof(DOIP_DEFAULT_PDU_MAPPINGS) / sizeof(DOIP_DEFAULT_PDU_MAPPINGS[0]),
-        DOIP_DEFAULT_TARGETS,
-        sizeof(DOIP_DEFAULT_TARGETS) / sizeof(DOIP_DEFAULT_TARGETS[0]),
-        DOIP_DEFAULT_ROUTING_ACTIVATIONS,
-        sizeof(DOIP_DEFAULT_ROUTING_ACTIVATIONS) / sizeof(DOIP_DEFAULT_ROUTING_ACTIVATIONS[0]),
-        DOIP_DEFAULT_TESTERS,
-        sizeof(DOIP_DEFAULT_TESTERS) / sizeof(DOIP_DEFAULT_TESTERS[0]),
-        DOIP_DEFAULT_CHANNELS,
-        sizeof(DOIP_DEFAULT_CHANNELS) / sizeof(DOIP_DEFAULT_CHANNELS[0])
+        sizeof(DOIP_DEFAULT_INTERFACES) / sizeof(DOIP_DEFAULT_INTERFACES[0])
     }
 };
 

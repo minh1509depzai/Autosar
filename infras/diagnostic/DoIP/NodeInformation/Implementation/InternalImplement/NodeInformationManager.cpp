@@ -55,7 +55,7 @@ void NodeInformationManager::handleEntityStatusRequest(ConnectionId udpConnectio
 {
     const configuration::DoIPConfiguration& config = configuration::DOIP_DEFAULT_CONFIGURATION;
     
-    if (config.containers.interfaces == nullptr || config.containers.interfaceCount == 0U)
+    if (config.configSet.interfaces == nullptr || config.configSet.interfaceCount == 0U)
     {
         return;
     }
@@ -76,7 +76,7 @@ void NodeInformationManager::handleEntityStatusRequest(ConnectionId udpConnectio
     }
 
     /* @SWS_DoIP_00098 */
-    responseData.maxOpenSockets = config.containers.interfaces[0].maxTesterConnections;
+    responseData.maxOpenSockets = config.configSet.interfaces[0].maxTesterConnections;
 
     /* @SWS_DoIP_00099 */
     responseData.currentlyOpenSockets = NodeInformation_getActiveConnections();
